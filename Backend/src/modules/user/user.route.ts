@@ -3,7 +3,7 @@ import { getUserHandler, loginHandler, registerUserHandler } from "./user.contro
 import { $ref } from "./user.schema";
 
 const userRoutes = async (server: FastifyInstance) => {
-    server.post('/', {
+    server.post('/create', {
         schema: {
             body:$ref("createUserSchema"),
             response:{
