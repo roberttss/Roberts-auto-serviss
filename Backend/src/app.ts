@@ -8,6 +8,12 @@ export const server = Fastify({
     logger: true
   })
 
+declare module 'fastify' {
+    export interface FastifyInstance {
+        authenticate: any;
+    }
+}
+
 server.register(fastifyJwt,{
     secret: 'fdgndfkbn2n345oii0msdlkfgfdfjsdoi1214asddfv908pvb6123nsdf8912kdfsgmweroabn'
   })
