@@ -8,7 +8,7 @@ export const hashPassword = (password: string) => {
     return { hash, salt };
 }
 
-export const verifyPassword = (candidatePassword: string, salt: string, hash:string ) => {
+export const verifyPassword = ({candidatePassword, salt, hash}:{candidatePassword: string, salt: string, hash:string} ) => {
     const candidateHash = crypto.pbkdf2Sync(candidatePassword, salt, 1000, 64, "sha512").toString("hex")
 
 
