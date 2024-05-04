@@ -6,7 +6,7 @@ type FormData = {
 }
 
 const LoginForm = () => {
-    const { register, handleSubmit } = useForm<FormData>()
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
         console.log(123, data)
@@ -20,8 +20,23 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("email")} type="text" placeholder="E-mail" />
-            <input {...register("password")} type="text" placeholder="Password" />
+            <input {...register("email", {
+                required: "E-mail is required",
+                pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Entered value does not match email format",
+                }
+            })} type="text" placeholder="E-mail" />
+            <p>{errors.email?.message}</p>
+
+            <input {...register("password", {
+                required: "Password is required",
+                minLength: {
+                    value: 8,
+                    message: "Minimal length for password is 8 characters",
+                }})} type="text" placeholder="Password" />
+            <p>{errors.password?.message}</p>
+
             <button>Submit</button>
         </form>
     );
