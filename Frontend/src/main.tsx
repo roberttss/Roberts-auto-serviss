@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './reset.css'
+import './reset.scss'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainPage from './Pages/MainPage/MainPage';
 

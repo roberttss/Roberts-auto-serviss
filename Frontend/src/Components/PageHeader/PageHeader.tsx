@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./PageHeader.css";
+import "./PageHeader.scss";
 import LoginForm from "./Components/LoginForm";
 import RegisterForm from "./Components/RegisterForm";
 import Cookies from "universal-cookie";
