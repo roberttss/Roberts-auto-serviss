@@ -3,6 +3,7 @@ import Fastify, { FastifyReply, FastifyRequest } from "fastify";
 import userRoutes from "./modules/user/user.route";
 import cors from '@fastify/cors'
 import { userSchemas } from "./modules/user/user.schema";
+import productRoutes from "./modules/product/product.route";
 
 export const server = Fastify({
     logger: true
@@ -36,12 +37,13 @@ server.get("/healthcheck", async () => {
 });
   
 const main = async () => {
-
     for(const schema of userSchemas){
         server.addSchema(schema);
     }
 
     server.register(userRoutes, {prefix: "api/users"})
+
+    server.register(productRoutes, {prefix: "api/products"})
 
     try{
         await server.listen(3000, '0.0.0.0')
