@@ -23,43 +23,46 @@ const PageHeader = ({ user, setUser }:PageHeaderProps) => {
     
     return (
         <div className="pageHeader__container">
-            <h2 className="pageHeader__container">RS</h2>
-            <h2>Robis Serviss</h2>
-            <button onClick={() => setOpenRegisterModal(true)}>Register</button>
-            {openRegisterModal && (
-                <div className="pageHeader__modal">
-                    <div className="pageHeader__modal--content">
-                        <RegisterForm />
-                        <button
-                            className="pageHeader__modal--close"
-                            onClick={() => setOpenRegisterModal(false)}
-                        >
-                            Close
-                        </button>
-                    </div>
-                </div>
-            )}
+            <h2 className="pageHeader__title">Robis Serviss</h2>
 
-            {user !== null ? (
-                <button onClick={logout}>logout</button>
-            ) : (
-                <div>
-                    <button onClick={() => setOpenLoginModal(true)}>Login</button>
-                    {openLoginModal && (
-                        <div className="pageHeader__modal">
-                            <div className="pageHeader__modal--content">
-                                <LoginForm setUserState={setUser}></LoginForm>
-                                <button
-                                    className="pageHeader__modal--close"
-                                    onClick={() => setOpenLoginModal(false)}
-                                >
-                                    Close
-                                </button>
-                            </div>
+            <div className="pageHeader__button--container">
+                <button className="pageHeader__button--style" onClick={() => setOpenRegisterModal(true)}>Register</button>
+                {openRegisterModal && (
+                    <div className="pageHeader__modal">
+                        <div className="pageHeader__modal--content">
+                            <RegisterForm />
+                            <button
+                                className="pageHeader__modal--close"
+                                onClick={() => setOpenRegisterModal(false)}
+                            >
+                                Close
+                            </button>
                         </div>
-                    )}
-                </div>
-            )}
+                    </div>
+                )}
+
+                {user !== null ? (
+                    <button className="pageHeader__button--style" onClick={logout}>logout</button>
+                ) : (
+                    <div>
+                        <button className="pageHeader__button--style" onClick={() => setOpenLoginModal(true)}>Login</button>
+                        {openLoginModal && (
+                            <div className="pageHeader__modal">
+                                <div className="pageHeader__modal--content">
+                                    <LoginForm setUserState={setUser}></LoginForm>
+                                    <button
+                                        className="pageHeader__modal--close"
+                                        onClick={() => setOpenLoginModal(false)}
+                                    >
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+            
         </div>
     );
 };

@@ -1,9 +1,15 @@
 .pageHeader__container {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 0;
-  font-style: italic;
-  font-size: 24px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.pageHeader__title {
+    font-size: 26px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .pageHeader__modal {
@@ -24,4 +30,24 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.pageHeader__button--container {
+  display: flex;
+  gap: 10px;
+}
+
+.pageHeader__button--style {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(70, 70, 70);
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+  }
 }
