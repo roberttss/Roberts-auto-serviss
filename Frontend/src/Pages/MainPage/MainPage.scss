@@ -1,10 +1,15 @@
 .mainPage__title {
-    font-size: 30px;
-    font-weight: bold;
+  font-size: 30px;
+  font-weight: bold;
 }
 
-.mainPage__container--items{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.mainPage__container--items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainPage__introduction--container {
+  display: flex;
+  justify-content: center;
 }

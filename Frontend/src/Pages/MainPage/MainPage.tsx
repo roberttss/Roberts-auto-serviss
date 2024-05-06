@@ -2,6 +2,7 @@ import { useState } from "react";
 import PageHeader from "../../Components/PageHeader/PageHeader"
 import './MainPage.scss'
 import ProductList from "../../Components/ProductList/ProductList";
+import { MainPageIntroduction } from "../../Components/MainPageIntroduction/MainPageIntroduction";
 
 export type UserType = {
     email: string,
@@ -25,6 +26,9 @@ const MainPage = () => {
     return (
         <div>
             <PageHeader user={user} setUser={setUser}></PageHeader>
+            <div className="mainPage__introduction--container">  
+                <MainPageIntroduction></MainPageIntroduction>
+            </div>
             <div className="mainPage__container--items">
                 <h1 className="mainPage__title">
                     {user === null ? "Welcome to Robis Serviss, please log in" : `Welcome ${user.name}`}

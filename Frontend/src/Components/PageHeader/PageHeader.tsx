@@ -26,7 +26,7 @@ const PageHeader = ({ user, setUser }:PageHeaderProps) => {
             <h2 className="pageHeader__title">Robis Serviss</h2>
 
             <div className="pageHeader__button--container">
-                <button className="pageHeader__button--style" onClick={() => setOpenRegisterModal(true)}>Register</button>
+                {user === null && (<button className="pageHeader__button--style" onClick={() => setOpenRegisterModal(true)}>Register</button>)}
                 {openRegisterModal && (
                     <div className="pageHeader__modal">
                         <div className="pageHeader__modal--content">
@@ -42,7 +42,11 @@ const PageHeader = ({ user, setUser }:PageHeaderProps) => {
                 )}
 
                 {user !== null ? (
+                <div>
                     <button className="pageHeader__button--style" onClick={logout}>logout</button>
+                    <button className="pageHeader__button--style" >Profile</button>
+                </div>
+                    
                 ) : (
                     <div>
                         <button className="pageHeader__button--style" onClick={() => setOpenLoginModal(true)}>Login</button>
@@ -61,8 +65,8 @@ const PageHeader = ({ user, setUser }:PageHeaderProps) => {
                         )}
                     </div>
                 )}
-            </div>
-            
+                <button className="pageHeader__button--style">Cart</button>
+            </div> 
         </div>
     );
 };

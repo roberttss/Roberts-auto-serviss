@@ -3,7 +3,12 @@
   grid-template-columns: 50% 50%;
   justify-items: center;
   align-items: center;
-  margin-top: 15px;
+  padding: 15px 0;
+  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
 }
 
 .pageHeader__title {
