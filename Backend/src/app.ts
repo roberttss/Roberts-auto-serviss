@@ -41,10 +41,6 @@ server.register(cors, {
     origin:true,
     credentials:true,
 })
-
-server.get("/healthcheck", async () => {
-    return { status: "OK" };
-});
   
 const main = async () => {
     for(const schema of userSchemas){

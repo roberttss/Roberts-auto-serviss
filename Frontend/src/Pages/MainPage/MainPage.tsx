@@ -29,10 +29,8 @@ const MainPage = () => {
             <div className="mainPage__introduction--container">  
                 <MainPageIntroduction></MainPageIntroduction>
             </div>
-            <div className="mainPage__container--items">
-                <h1 className="mainPage__title">
-                    {user === null ? "Welcome to Robis Serviss, please log in" : `Welcome ${user.name}`}
-                </h1>
+            <div className="mainPage__product--container">
+                <h1 className="mainPage__product--title">Our products</h1>
                 <ProductList />
             </div>
             

@@ -3,13 +3,19 @@
   font-weight: bold;
 }
 
-.mainPage__container--items {
+.mainPage__product--container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 15px;
 }
 
 .mainPage__introduction--container {
   display: flex;
   justify-content: center;
+}
+
+.mainPage__product--title{
+    font-size: 24px;
+    font-weight: bold;
 }
