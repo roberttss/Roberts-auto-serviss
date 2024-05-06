@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
 // import Cookies from "universal-cookie";
 import { UserType } from "../../../Pages/MainPage/MainPage";
+import './Form.scss'
 
 type FormData = {
     email: string;
@@ -10,9 +11,10 @@ type FormData = {
 
 type LoginFormProps = {
     setUserState: (user: UserType) => void;
+    onClose: (state: boolean) => void
 }
 
-const LoginForm = ({setUserState}: LoginFormProps) => {
+const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
     const { register, handleSubmit, formState: { errors }} = useForm<FormData>()
 
     // const cookies = new Cookies();
@@ -42,26 +44,45 @@ const LoginForm = ({setUserState}: LoginFormProps) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("email", {
-                required: "E-mail is required",
-                pattern: {
-                    value: /\S+@\S+\.\S+/,
-                    message: "Entered value does not match email format",
-                }
-            })} type="text" placeholder="E-mail" />
-            <p>{errors.email?.message}</p>
+        <div className="form__container">
+            <h1 className="form__title">Login form</h1>
+            <form className="form__main--container" onSubmit={handleSubmit(onSubmit)}>
 
-            <input {...register("password", {
-                required: "Password is required",
-                minLength: {
-                    value: 8,
-                    message: "Minimal length for password is 8 characters",
-                }})} type="text" placeholder="Password" />
-            <p>{errors.password?.message}</p>
+                <div className="form__input--container">
+                    <label className="form__label" htmlFor="e-mail">E-mail</label>
+                    <input className="form__inputField" {...register("email", {
+                        required: "E-mail is required",
+                        pattern: {
+                            value: /\S+@\S+\.\S+/,
+                            message: "Entered value does not match email format",
+                        }
+                    })} type="text" placeholder="E-mail" id="e-mail"/>
+                    <p>{errors.email?.message}</p>
+                </div>
 
-            <button>Submit</button>
-        </form>
+                <div className="form__input--container">
+                    <label className="form__label" htmlFor="password">Password</label>
+                    <input className="form__inputField" {...register("password", {
+                        required: "Password is required",
+                        minLength: {
+                            value: 8,
+                            message: "Minimal length for password is 8 characters",
+                        }})} type="text" placeholder="Password" id="password"/>
+                    <p>{errors.password?.message}</p>
+                </div>
+
+                <div className="form__buttons--container">
+                    <button
+                        className="form__button--cancel"
+                        onClick={() => onClose(true)}
+                    >
+                        Cancel
+                    </button>
+                    <button className="pageHeader__button--standart">Submit</button>
+                </div>
+            </form> 
+        </div>
+        
     );
 };
 
