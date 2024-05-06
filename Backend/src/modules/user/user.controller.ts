@@ -20,9 +20,9 @@ export const registerUserHandler = async (request: FastifyRequest<{Body: createU
 
 export const loginHandler = async (request: FastifyRequest<{Body: LoginInput}>, reply: FastifyReply) => {
     const body = request.body;
-
-    const user = await findUserByEmail(body.email);
     
+    const user = await findUserByEmail(body.email);
+
     if(!user){
         return reply.code(401).send({
             message: "Invalid email or password"
@@ -37,16 +37,31 @@ export const loginHandler = async (request: FastifyRequest<{Body: LoginInput}>, 
 
     if(correctPassword){
         const {password, salt, ...rest} = user
-        return {accessToken: server.jwt.sign(rest)}
+
+        const token = server.jwt.sign(rest)
+
+        reply.setCookie('access_token', token, {
+            path: '/',
+            httpOnly: true,
+            secure: true,
+        })
+     
+        return { accessToken: token }
     }
 
-    return reply.code(401).send({
+    reply.code(401).send({
         message: "Invalid email or password"
     });
 }
 
-export const getUserHandler = async () => {
+export const getUserHandler = async (req: FastifyRequest, reply: FastifyReply) => {
     const users = await findUsers()
 
-    return users
+    return reply.code(200).send(users)
+}
+
+export const logoutUser = (req: FastifyRequest, reply: FastifyReply) => {
+    reply.clearCookie('access_token')
+
+    return reply.send({ message: 'Logout successful' })
 }

@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify"
-import { getUserHandler, loginHandler, registerUserHandler } from "./user.controller"
+import { getUserHandler, loginHandler, logoutUser, registerUserHandler } from "./user.controller"
 import { $ref } from "./user.schema";
 
 const userRoutes = async (server: FastifyInstance) => {
@@ -24,6 +24,10 @@ const userRoutes = async (server: FastifyInstance) => {
     server.get('/',{
         preHandler: [server.authenticate]
     }, getUserHandler)
+
+    server.delete('/logout',{
+        preHandler: [server.authenticate]
+    }, logoutUser)
 }
 
 export default userRoutes
