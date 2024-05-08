@@ -3,6 +3,7 @@ import "./PageHeader.scss";
 import LoginForm from "./Components/LoginForm";
 import RegisterForm from "./Components/RegisterForm";
 import { UserType } from "../../Pages/MainPage/MainPage";
+import Cookies from 'universal-cookie';
 
 type PageHeaderProps = {
     user: UserType | null,
@@ -12,11 +13,12 @@ type PageHeaderProps = {
 const PageHeader = ({ user, setUser }: PageHeaderProps) => {
     const [openRegisterModal, setOpenRegisterModal] = useState<boolean>(false);
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
-
+    const cookies = new Cookies();
 
     const logout = async () => {
         const response = await fetch("http://localhost:3000/api/users/logout", {
             method: 'Delete',
+            credentials: 'include',
         })
 
         if ('error' in response) {
@@ -24,6 +26,7 @@ const PageHeader = ({ user, setUser }: PageHeaderProps) => {
         }
 
         setUser(null)
+        cookies.remove("access_token")
     }
 
     return (

@@ -40,13 +40,17 @@ export const loginHandler = async (request: FastifyRequest<{Body: LoginInput}>, 
 
         const token = server.jwt.sign(rest)
 
+        let current = new Date();
+
         reply.setCookie('access_token', token, {
+            domain: 'localhost',
             path: '/',
             httpOnly: true,
             secure: true,
+            expires: new Date(current.getTime() + 86400000),
         })
      
-        return { accessToken: token }
+        return reply.send({ accessToken: token })
     }
 
     reply.code(401).send({

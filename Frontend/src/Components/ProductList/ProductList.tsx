@@ -19,6 +19,7 @@ const ProductList = () => {
     useEffect(() => {
         fetch('http://localhost:3000/api/products', {
             method: 'GET',
+            credentials: "include",
         })
             .then((res) => res.json())
             .then((res) => (setProducts(res), setFilteredProductList(res)))

@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PageHeader from "../../Components/PageHeader/PageHeader"
 import './MainPage.scss'
 import ProductList from "../../Components/ProductList/ProductList";
 import { MainPageIntroduction } from "../../Components/MainPageIntroduction/MainPageIntroduction";
+import { jwtDecode } from "jwt-decode";
 
 export type UserType = {
     email: string,
@@ -15,15 +16,31 @@ const MainPage = () => {
 
     const productsRef = useRef<HTMLDivElement>(null)
 
-    // const checkUsers = async () => {
-    //     const response = await fetch('http://localhost:3000/api/users', {
-    //         method: 'GET',
-    //         credentials: 'include'
-    //     })
+    const manualLogin = (jwt_token: string) => {
+        const decoded: UserType = jwtDecode(jwt_token);
 
-    //     const users = await response.json();
-    //     console.log(123123, users);
-    // }
+        setUser(decoded)
+    }
+
+    const checkUsers = async () => {
+        const response = await fetch('http://localhost:3000/api/products/verify', {
+            method: 'GET',
+            credentials: 'include'
+        })
+
+        if (response.status === 401) {
+            return null
+        }
+
+        const users = await response.json();
+
+        manualLogin(users.cookieValue)
+        return users.cookieValue
+    }
+
+    useEffect(() => {
+        checkUsers()
+    },[])
 
     return (
         <div>

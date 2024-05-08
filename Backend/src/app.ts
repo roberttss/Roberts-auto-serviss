@@ -6,14 +6,28 @@ import { userSchemas } from "./modules/user/user.schema";
 import productRoutes from "./modules/product/product.route";
 import fCookie from '@fastify/cookie'
 
-
 export const server = Fastify({
     logger: true
   })
 
+server.register(fCookie, {
+    secret: 'fdgndfkbn2n3452348*9283#$*%@fh9isdf@*jsdoi1214asddfv908pvb6123nsdf8912kdfsgmweroabn',
+    hook: 'preHandler',
+})
+
 server.register(fastifyJwt,{
     secret: 'fdgndfkbn2n345oii0msdlkfgfdfjsdoi1214asddfv908pvb6123nsdf8912kdfsgmweroabn'
   })
+
+server.addHook('preHandler', (req, res, next) => {
+    req.jwt = server.jwt
+    return next()
+})
+
+server.register(cors, {
+    origin:true,
+    credentials:true,
+})
 
 server.decorate("authenticate", async (request: FastifyRequest, reply: FastifyReply) => {
     const token = request.cookies.access_token
@@ -24,22 +38,6 @@ server.decorate("authenticate", async (request: FastifyRequest, reply: FastifyRe
 
     const decoded = request.jwt.verify<FastifyJWT['user']>(token)
     request.user = decoded
-
-})
-
-server.addHook('preHandler', (req, res, next) => {
-    req.jwt = server.jwt
-    return next()
-})
-
-server.register(fCookie, {
-    secret: 'fdgndfkbn2n3452348*9283#$*%@fh9isdf@*jsdoi1214asddfv908pvb6123nsdf8912kdfsgmweroabn',
-    hook: 'preHandler',
-})
-
-server.register(cors, {
-    origin:true,
-    credentials:true,
 })
   
 const main = async () => {
