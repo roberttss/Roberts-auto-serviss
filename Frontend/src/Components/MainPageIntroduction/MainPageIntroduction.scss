@@ -41,18 +41,18 @@
   grid-template-rows: 1fr 1fr 1fr;
 }
 
-.introduction__button--style{
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    background-color: white;
-    font-size: 24px;
-    font-style: italic;
+.introduction__button--style {
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  font-size: 24px;
+  font-style: italic;
 }
 
-.introduction__button--style:hover{
-    transition: 0.3s;
-    box-shadow:
-      rgba(0, 0, 0, 0.3) 0px 19px 38px,
-      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+.introduction__button--style:hover {
+  transition: 0.3s;
+  box-shadow:
+    rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }

@@ -28,14 +28,14 @@ const MainPage = () => {
     return (
         <div>
             <PageHeader user={user} setUser={setUser}></PageHeader>
-            <div className="mainPage__introduction--container">  
+            <div className="mainPage__introduction--container">
                 <MainPageIntroduction productsRef={productsRef}></MainPageIntroduction>
             </div>
             <div className="mainPage__product--container">
                 <div className="mainPage__product--title" ref={productsRef}>Our products</div>
                 <ProductList />
             </div>
-            
+
         </div>
     )
 }

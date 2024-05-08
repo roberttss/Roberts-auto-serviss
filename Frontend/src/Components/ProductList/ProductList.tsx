@@ -72,7 +72,7 @@ const ProductList = () => {
                     <option value="high">Sort high to low (Price)</option>
                 </select>
             </div>
-            
+
             <div className="productList__products--container">
                 {filteredProductList.map(({ id, title, picture, price }) => (
                     <div className="productList__product--container" key={id}>
