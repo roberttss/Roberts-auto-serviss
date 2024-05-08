@@ -23,7 +23,7 @@ const MainPage = () => {
     }
 
     const checkUsers = async () => {
-        const response = await fetch('http://localhost:3000/api/products/verify', {
+        const response = await fetch('http://localhost:3000/api/users/verify', {
             method: 'GET',
             credentials: 'include'
         })
@@ -40,7 +40,7 @@ const MainPage = () => {
 
     useEffect(() => {
         checkUsers()
-    },[])
+    })
 
     return (
         <div>

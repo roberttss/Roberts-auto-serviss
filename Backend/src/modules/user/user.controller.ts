@@ -69,3 +69,7 @@ export const logoutUser = (req: FastifyRequest, reply: FastifyReply) => {
 
     return reply.send({ message: 'Logout successful' })
 }
+
+export const getVerifyHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+    return reply.send({ cookieValue: request.cookies.access_token })
+}
