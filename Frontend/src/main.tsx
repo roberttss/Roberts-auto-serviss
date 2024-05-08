@@ -4,6 +4,7 @@ import './reset.scss'
 import './main.scss'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainPage from './Pages/MainPage/MainPage';
+import { GlobalContextProvider } from './GlobalContext/GlobalContextProvider';
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <GlobalContextProvider>
+            <RouterProvider router={router} />
+        </GlobalContextProvider>
     </React.StrictMode>,
 )

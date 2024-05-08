@@ -5,6 +5,7 @@ import RegisterForm from "./Components/RegisterForm";
 import { UserType } from "../../Pages/MainPage/MainPage";
 import Cookies from 'universal-cookie';
 
+
 type PageHeaderProps = {
     user: UserType | null,
     setUser: (user: UserType | null) => void
