@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { GlobalContext } from "./GlobalContext";
+import { GlobalContext, UserType } from "./GlobalContext";
 import { Product } from "../Components/ProductList/ProductList";
 
 export const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [items, setItems] = useState<Product[]>([])
-
+    const [user, setUser] = useState<UserType | null>(null);
 
     const data = {
         itemsInCart: items,
         setItemsInCart: setItems,
+        user: user,
+        setUser: setUser, 
     }
 
     return (

@@ -1,18 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./PageHeader.scss";
 import LoginForm from "./Components/LoginForm";
 import RegisterForm from "./Components/RegisterForm";
-import { UserType } from "../../Pages/MainPage/MainPage";
 import Cookies from 'universal-cookie';
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../../GlobalContext/GlobalContext";
 
+const PageHeader = () => {
+    const {user, setUser} = useContext(GlobalContext)
 
-type PageHeaderProps = {
-    user: UserType | null,
-    setUser: (user: UserType | null) => void
-}
-
-const PageHeader = ({ user, setUser }: PageHeaderProps) => {
     const [openRegisterModal, setOpenRegisterModal] = useState<boolean>(false);
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
     const cookies = new Cookies();
