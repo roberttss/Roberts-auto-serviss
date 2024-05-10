@@ -5,12 +5,17 @@ import './main.scss'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainPage from './Pages/MainPage/MainPage';
 import { GlobalContextProvider } from './GlobalContext/GlobalContextProvider';
+import { Cart } from './Pages/Cart/Cart';
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainPage />,
     },
+    {
+        path: "/cart",
+        element: <Cart />
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

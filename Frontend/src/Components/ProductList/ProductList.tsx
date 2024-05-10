@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import './ProductList.scss'
+import { ProductItemModal } from "./Components/ProductItemModal";
 
-type Product = {
+export type Product = {
     id: number,
     title: string,
     price: number,
@@ -10,11 +11,17 @@ type Product = {
     group: string,
 }
 
+type OpenProductItemType = {
+    openModal: boolean,
+    itemId: number,
+}
+
 const ProductList = () => {
     const [products, setProducts] = useState<Product[]>([])
     const [filteredProductList, setFilteredProductList] = useState<Product[]>([])
     const [filterValue, setFilterValue] = useState<string>("")
     const [sortValue, setSortValue] = useState<string>("")
+    const [openProductItemModal, setOpenProductItemModal] = useState<OpenProductItemType>({openModal: false, itemId: 999})
 
     useEffect(() => {
         fetch('http://localhost:3000/api/products', {
@@ -76,7 +83,7 @@ const ProductList = () => {
 
             <div className="productList__products--container">
                 {filteredProductList.map(({ id, title, picture, price }) => (
-                    <div className="productList__product--container" key={id}>
+                    <button className="productList__product--container" key={id} onClick={() => setOpenProductItemModal({openModal: true, itemId: id})}>
                         <img className="productList__image" src={picture} alt={`${title} photo`} />
                         <h2 className="productList__title">
                             {title}
@@ -84,9 +91,11 @@ const ProductList = () => {
                         <h2 className="productList__title">
                             {price}$
                         </h2>
-                    </div>
+                    </button>
                 ))}
             </div>
+
+            {openProductItemModal.openModal && <ProductItemModal product={products[openProductItemModal.itemId - 1]} onClose={() => setOpenProductItemModal({ openModal: false, itemId: openProductItemModal.itemId })}/>}
         </div>
     )
 }

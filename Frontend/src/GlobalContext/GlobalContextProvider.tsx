@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { GlobalContext } from "./GlobalContext";
+import { Product } from "../Components/ProductList/ProductList";
 
 export const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [items, setItems] = useState<string>("")
+    const [items, setItems] = useState<Product[]>([])
 
 
     const data = {

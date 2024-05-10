@@ -4,6 +4,7 @@ import LoginForm from "./Components/LoginForm";
 import RegisterForm from "./Components/RegisterForm";
 import { UserType } from "../../Pages/MainPage/MainPage";
 import Cookies from 'universal-cookie';
+import { Link } from "react-router-dom";
 
 
 type PageHeaderProps = {
@@ -46,7 +47,7 @@ const PageHeader = ({ user, setUser }: PageHeaderProps) => {
                 ) : (
                     <button className="pageHeader__button--standart" onClick={() => setOpenLoginModal(true)}>Login</button>
                 )}
-                <button className="pageHeader__button--standart">Cart</button>
+                <Link to="/cart" className="pageHeader__button--standart">Cart</Link>
             </div>
 
             {openRegisterModal && (

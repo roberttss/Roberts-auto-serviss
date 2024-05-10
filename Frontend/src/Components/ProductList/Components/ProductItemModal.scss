@@ -1,12 +1,4 @@
-.pageHeader__container {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 0;
-  font-style: italic;
-  font-size: 24px;
-}
-
-.pageHeader__modal {
+.productItem__modal {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -18,10 +10,12 @@
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.pageHeader__modal--content {
+.productItem__modal--content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
+  min-width: 500px;
+  border-radius: 6px;
 }

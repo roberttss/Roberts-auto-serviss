@@ -1,12 +1,13 @@
 import { Dispatch, SetStateAction, createContext } from "react";
+import { Product } from "../Components/ProductList/ProductList";
 
 type GlobalContextType = {
-    itemsInCart: string;
-    setItemsInCart: Dispatch<SetStateAction<string>>;
+    itemsInCart: Product[];
+    setItemsInCart: Dispatch<SetStateAction<Product[]>>;
 }
 
 const defaultValues = {
-    itemsInCart: "",
+    itemsInCart: [],
     setItemsInCart: () => {}
 }
 
