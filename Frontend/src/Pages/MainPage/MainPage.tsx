@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef } from "react";
-import PageHeader from "../../Components/PageHeader/PageHeader"
 import './MainPage.scss'
 import ProductList from "../../Components/ProductList/ProductList";
 import { MainPageIntroduction } from "../../Components/MainPageIntroduction/MainPageIntroduction";
@@ -18,7 +17,6 @@ const MainPage = () => {
     }
 
     const checkUsers = async () => {
-        console.log(123123)
         const response = await fetch('http://localhost:3000/api/users/verify', {
             method: 'GET',
             credentials: 'include'
@@ -40,7 +38,6 @@ const MainPage = () => {
 
     return (
         <div>
-            <PageHeader />
             <div className="mainPage__introduction--container">
                 <MainPageIntroduction productsRef={productsRef}></MainPageIntroduction>
             </div>
@@ -48,7 +45,6 @@ const MainPage = () => {
                 <div className="mainPage__product--title" ref={productsRef}>Our products</div>
                 <ProductList />
             </div>
-
         </div>
     )
 }

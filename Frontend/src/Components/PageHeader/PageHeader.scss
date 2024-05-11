@@ -15,6 +15,8 @@
   font-size: 26px;
   font-style: italic;
   font-weight: bold;
+  color: black;
+  text-decoration: none;
 }
 
 .pageHeader__modal {
@@ -52,6 +54,7 @@
   cursor: pointer;
   border: none;
   border-radius: 6px;
+  text-decoration: none;
 
   &:hover {
     opacity: 0.8;

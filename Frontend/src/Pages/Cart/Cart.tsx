@@ -1,7 +1,9 @@
+import './Cart.scss'
+
 export const Cart = () => {
 
     return (
-        <div>
+        <div className="cart__container">
             Cart page 
         </div>
     )

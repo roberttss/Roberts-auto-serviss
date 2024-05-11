@@ -29,7 +29,7 @@ const PageHeader = () => {
 
     return (
         <div className="pageHeader__container">
-            <h2 className="pageHeader__title">Robis Serviss</h2>
+            <Link to="/" className="pageHeader__title">Robis Serviss</Link>
 
             <div className="pageHeader__button--container">
                 {user === null && (<button className="pageHeader__button--standart" onClick={() => setOpenRegisterModal(true)}>Register</button>)}
