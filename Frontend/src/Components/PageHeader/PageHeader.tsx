@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContext/GlobalContext";
 
 const PageHeader = () => {
-    const {user, setUser} = useContext(GlobalContext)
+    const { itemsInCart, user, setUser} = useContext(GlobalContext)
 
     const [openRegisterModal, setOpenRegisterModal] = useState<boolean>(false);
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
@@ -43,7 +43,7 @@ const PageHeader = () => {
                 ) : (
                     <button className="pageHeader__button--standart" onClick={() => setOpenLoginModal(true)}>Login</button>
                 )}
-                <Link to="/cart" className="pageHeader__button--standart">Cart</Link>
+                <Link to="/cart" className="pageHeader__button--standart relative">Cart {itemsInCart.length !== 0 && <span className="pageHeader__cart--circle">{itemsInCart.length}</span>}</Link>
             </div>
 
             {openRegisterModal && (

@@ -29,8 +29,28 @@
     cursor: pointer;
 }
 
+.cart__list--container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 .cart__list--empty{
     text-align: center;
     padding: 20px;
     font-size: 24px;
+}
+
+.cart__item--container{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart__item--picture{
+    width: 140px;
 }

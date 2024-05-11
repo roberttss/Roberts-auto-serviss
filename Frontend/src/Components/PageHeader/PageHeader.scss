@@ -61,3 +61,17 @@
     transition: 0.3s;
   }
 }
+
+.relative{ 
+    position: relative;
+}
+
+.pageHeader__cart--circle{
+    padding: 5px;
+    position: absolute;
+    background-color: crimson;
+    color: white;
+    border-radius: 50%;
+    top: -9px;
+    left: 59px;
+}
