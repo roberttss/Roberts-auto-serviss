@@ -37,8 +37,6 @@ export const Cart = () => {
 
     const uniqueItemArray =  filterForUniqueItemArray(itemsInCart)
 
-    console.log(11111, uniqueItemArray)
-
     const addOrRemoveItem = (action: string, id: number) => {
         const item = uniqueItemArray.find((item) => item.item.id === id)
         const indexo = uniqueItemArray.findIndex((item) => item.item.id === id)
@@ -47,7 +45,6 @@ export const Cart = () => {
         if (item === undefined) {
             return null
         }
-
 
         if (action === "plus") {
             const updatedCartItems = [...itemList];
@@ -67,6 +64,14 @@ export const Cart = () => {
     }
 
     const [itemList, setItemList] = useState<CartItem[]>(uniqueItemArray)
+
+    const removeItem = (id:number) => {
+        const coppiedCartItems = [...itemList];
+
+        const filteredArray = coppiedCartItems.filter((item) => item.item.id !== id)
+
+        return setItemList(filteredArray)
+    }
 
 
     return (
@@ -89,7 +94,7 @@ export const Cart = () => {
                                     <div>{cartAmount}</div>
                                     <button onClick={() => addOrRemoveItem("plus", item.id)}>Plus</button>
                             </div>
-                            <button>remove</button>
+                                <button onClick={() => removeItem(item.id)}>remove</button>
                         </div>
                     ))}
                 </div>
