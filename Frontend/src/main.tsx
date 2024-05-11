@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './reset.scss'
-import './main.scss'
+import './globalStyles.scss'
 import { GlobalContextProvider } from './GlobalContext/GlobalContextProvider';
 import { RouterFile } from './RouterFile';
 

@@ -21,7 +21,7 @@ export const MainPageIntroduction = ({ productsRef }: MainPageIntroductionProps)
     };
 
     return (
-        <div className='introduction__container'>
+        <div className='introduction__container marginForHeader'>
             <div>
                 <div className='introduction__title--container'>
                     <h1 className='introduction__title'>Welcome to</h1>
