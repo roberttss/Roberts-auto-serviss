@@ -1,6 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
-// import Cookies from "universal-cookie";
 import './Form.scss'
 import { UserType } from "../../../GlobalContext/GlobalContext";
 
