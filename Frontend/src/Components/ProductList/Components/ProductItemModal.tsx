@@ -15,8 +15,15 @@ export const ProductItemModal = ({product, onClose}: ProductItemModalType) => {
     <div className="productItem__modal">
         <div className="productItem__modal--content">
             <div>This is {product.title}</div>
-                <button onClick={() => setItemsInCart([...itemsInCart, product])}>Add</button>
-            <button onClick={onClose}>Close</button>
+            <div className="productItem__modal--buttonContainer">
+                <button
+                        className="productItem__modal--cancel"
+                    onClick={onClose}
+                >
+                    Back
+                </button>
+                    <button className="productItem__modal--add" onClick={() => setItemsInCart([...itemsInCart, product])}>Add</button>
+            </div>
         </div>
     </div> 
 )}

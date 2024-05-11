@@ -15,7 +15,6 @@ const RegisterForm = ({onClose}: RegisterFormProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        console.log(123, data)
         fetch("http://localhost:3000/api/users/create", {
             method: 'POST',
             headers: { "Content-Type": 'application/json' },

@@ -19,11 +19,11 @@ export const Cart = () => {
         return filteredArray.length;
     };
 
-    const filterForUniqueItemArray = (itemsArray:Product[]) => {
+    const filterForUniqueItemArray = (itemsArray: Product[]) => {
         const uniqueItemArray: CartItem[] = []
 
         itemsArray.forEach((item1) => {
-            if(!uniqueItemArray.some((item2) => item2.item.id === item1.id )){
+            if (!uniqueItemArray.some((item2) => item2.item.id === item1.id)) {
                 uniqueItemArray.push({ item: item1, cartAmount: countElementsWithId(itemsInCart, item1.id) })
             } else {
                 const itemIndex = uniqueItemArray.findIndex(item => item.item.id === item1.id);
@@ -35,12 +35,11 @@ export const Cart = () => {
         return uniqueItemArray
     }
 
-    const uniqueItemArray =  filterForUniqueItemArray(itemsInCart)
+    const uniqueItemArray = filterForUniqueItemArray(itemsInCart)
 
     const addOrRemoveItem = (action: string, id: number) => {
         const item = uniqueItemArray.find((item) => item.item.id === id)
         const indexo = uniqueItemArray.findIndex((item) => item.item.id === id)
-        console.log(2222, item)
 
         if (item === undefined) {
             return null
@@ -65,7 +64,7 @@ export const Cart = () => {
 
     const [itemList, setItemList] = useState<CartItem[]>(uniqueItemArray)
 
-    const removeItem = (id:number) => {
+    const removeItem = (id: number) => {
         const coppiedCartItems = [...itemList];
 
         const filteredArray = coppiedCartItems.filter((item) => item.item.id !== id)
@@ -83,20 +82,32 @@ export const Cart = () => {
                 </div>
                 <div className='cart__list--container'>
                     {itemsInCart.length === 0 ?
-                     <div className='cart__list--empty'>Cart is empty</div> :
-                        itemList.map(({item, cartAmount}) => (
-                        <div className='cart__item--container' key={item.id}>
-                              <img src={item.picture} alt={`${item.title} photo`} className='cart__item--picture'/>
-                            {item.title}
-                            <span>{item.price}</span>
-                            <div>
-                                    <button onClick={() => addOrRemoveItem("minus", item.id)}>minus</button>
-                                    <div>{cartAmount}</div>
-                                    <button onClick={() => addOrRemoveItem("plus", item.id)}>Plus</button>
+                        <div className='cart__list--empty'>Cart is empty</div> :
+                        itemList.map(({ item, cartAmount }) => (
+                            <div className='cart__item--container' key={item.id}>
+                                <div className='cart__item--infoContainer'>
+                                    <img src={item.picture} alt={`${item.title} photo`} className='cart__item--picture' />
+                                    <div className='cart__item--nameContainer'>
+                                        <span>{item.title}</span>
+                                        <span>Price: {item.price}$</span>
+                                    </div>
+                                </div>
+                                
+
+                                <div className='cart__item--optionsContainer'>
+                                    <div className='cart__item--counterContainer'>
+                                        <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("minus", item.id)}>-</button>
+                                        <span className='cart__item--count'>{cartAmount}</span>
+                                        <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("plus", item.id)}>+</button>
+                                    </div>
+                                    <button 
+                                        className='cart__item--remove' 
+                                        onClick={() => removeItem(item.id)}>
+                                            Remove
+                                    </button>
+                                </div>
                             </div>
-                                <button onClick={() => removeItem(item.id)}>remove</button>
-                        </div>
-                    ))}
+                        ))}
                 </div>
             </div>
         </div>
