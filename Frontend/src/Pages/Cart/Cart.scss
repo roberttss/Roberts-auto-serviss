@@ -116,3 +116,23 @@
 .cart__item--count{
     font-size: 20px;
 }
+
+.cart__item--total{
+    font-size: 20px;
+}
+
+.cart__item--bold{
+    font-weight: bold;
+}
+
+.cart_item--cartTotal{
+    font-size: 20px;
+    text-align: end;
+}
+
+.cart_item--cartTotalContainer{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+}

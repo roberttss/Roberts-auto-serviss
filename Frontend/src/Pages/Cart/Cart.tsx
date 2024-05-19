@@ -72,6 +72,13 @@ export const Cart = () => {
         return setItemList(filteredArray)
     }
 
+    const getTotalAmount = (array: CartItem[]) => {
+        if (array.length === 0) {
+            return 0.00
+        }
+
+        return array.map((a) => a.item.price * a.cartAmount).reduce((a, b) => a + b).toFixed(2)
+    }
 
     return (
         <div className="marginForHeader">
@@ -89,10 +96,10 @@ export const Cart = () => {
                                     <img src={item.picture} alt={`${item.title} photo`} className='cart__item--picture' />
                                     <div className='cart__item--nameContainer'>
                                         <span>{item.title}</span>
-                                        <span>Price: {item.price}$</span>
+                                        <span>Price: <b className='cart__item--bold'>{item.price.toFixed(2)}$</b></span>
                                     </div>
                                 </div>
-                                
+
 
                                 <div className='cart__item--optionsContainer'>
                                     <div className='cart__item--counterContainer'>
@@ -100,14 +107,19 @@ export const Cart = () => {
                                         <span className='cart__item--count'>{cartAmount}</span>
                                         <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("plus", item.id)}>+</button>
                                     </div>
-                                    <button 
-                                        className='cart__item--remove' 
+                                    <span className='cart__item--total'>Total: <b className='cart__item--bold'>{(cartAmount * item.price).toFixed(2)}$</b></span>
+                                    <button
+                                        className='cart__item--remove'
                                         onClick={() => removeItem(item.id)}>
-                                            Remove
+                                        Remove
                                     </button>
                                 </div>
                             </div>
                         ))}
+                    {itemsInCart.length !== 0 && <div className='cart_item--cartTotalContainer'>
+                        <div className='cart_item--cartTotal'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemList)}$</span></div>
+                        <button className='cart__header--button'>Proceed →</button>
+                    </div>}
                 </div>
             </div>
         </div>

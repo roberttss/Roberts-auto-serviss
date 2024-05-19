@@ -11,8 +11,6 @@ type ProductItemModalType = {
 export const ProductItemModal = ({ product, onClose }: ProductItemModalType) => {
     const { itemsInCart, setItemsInCart } = useContext(GlobalContext)
 
-    console.log(111, product)
-
     return (
         <div className="productItem__modal">
             <div className="productItem__modal--content">
