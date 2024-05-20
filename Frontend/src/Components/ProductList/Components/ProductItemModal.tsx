@@ -20,7 +20,7 @@ export const ProductItemModal = ({ product, onClose }: ProductItemModalType) => 
                     <div className='productItem__product--infoContainer'>
                         <img src={product.picture} alt={`${product.title} picture`} className='productItem_product--image' />
                         <div className='productItem_product--priceContainer'>
-                            <span>{product.inStock > 0 ? <div className='productItem_product--available'>Is available</div> : <div className='productItem_product--notAvailable'>Not in stock</div>}</span>
+                            <span>{product.inStock > 0 ? <div className='productItem_product--available textAlignCenter'>Is available</div> : <div className='productItem_product--notAvailable textAlignCenter'>Not in stock</div>}</span>
                             <span className='productItem_product--price'>Price: <b className='productItem_product--bold'>{product.price}$</b></span>
                         </div>
 

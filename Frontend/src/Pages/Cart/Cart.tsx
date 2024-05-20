@@ -89,7 +89,7 @@ export const Cart = () => {
                 </div>
                 <div className='cart__list--container'>
                     {itemsInCart.length === 0 ?
-                        <div className='cart__list--empty'>Cart is empty</div> :
+                        <div className='cart__list--empty textAlignCenter'>Cart is empty</div> :
                         itemList.map(({ item, cartAmount }) => (
                             <div className='cart__item--container' key={item.id}>
                                 <div className='cart__item--infoContainer'>
@@ -107,7 +107,7 @@ export const Cart = () => {
                                         <span className='cart__item--count'>{cartAmount}</span>
                                         <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("plus", item.id)}>+</button>
                                     </div>
-                                    <span className='cart__item--total'>Total: <b className='cart__item--bold'>{(cartAmount * item.price).toFixed(2)}$</b></span>
+                                    <span className='cart__item--total '>Total: <b className='cart__item--bold'>{(cartAmount * item.price).toFixed(2)}$</b></span>
                                     <button
                                         className='cart__item--remove'
                                         onClick={() => removeItem(item.id)}>
@@ -117,7 +117,7 @@ export const Cart = () => {
                             </div>
                         ))}
                     {itemsInCart.length !== 0 && <div className='cart_item--cartTotalContainer'>
-                        <div className='cart_item--cartTotal'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemList)}$</span></div>
+                        <div className='cart_item--cartTotal textAlignEnd'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemList)}$</span></div>
                         <button className='cart__header--button'>Proceed →</button>
                     </div>}
                 </div>

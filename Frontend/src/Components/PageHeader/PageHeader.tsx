@@ -20,7 +20,7 @@ const PageHeader = () => {
         })
 
         if ('error' in response) {
-            console.log("We have error with logout")
+            alert("Error has occurred, please try again later")
         }
 
         setUser(null)
