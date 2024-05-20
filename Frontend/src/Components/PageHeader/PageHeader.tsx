@@ -37,7 +37,7 @@ const PageHeader = () => {
                 {user !== null ? (
                     <>
                         <button className="pageHeader__button--standart" onClick={logout}>Logout</button>
-                        <button className="pageHeader__button--standart">Profile</button>
+                        <Link to="/profile" className="pageHeader__button--standart">Profile</Link>
                     </>
 
                 ) : (
