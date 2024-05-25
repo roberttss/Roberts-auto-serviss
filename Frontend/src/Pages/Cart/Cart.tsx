@@ -8,8 +8,16 @@ type CartItem = {
     cartAmount: number;
 }
 
+const getTotalAmount = (array: CartItem[]) => {
+    if (array.length === 0) {
+        return 0.00
+    }
+
+    return array.map((a) => a.item.price * a.cartAmount).reduce((a, b) => a + b).toFixed(2)
+}
+
 export const Cart = () => {
-    const { itemsInCart } = useContext(GlobalContext)
+    const { itemsInCart, user } = useContext(GlobalContext)
 
     const countElementsWithId = (arr: Product[], targetId: number) => {
         // Filter the array to get elements that have the specified id
@@ -72,12 +80,16 @@ export const Cart = () => {
         return setItemList(filteredArray)
     }
 
-    const getTotalAmount = (array: CartItem[]) => {
-        if (array.length === 0) {
-            return 0.00
+    const onCartSubmit = () => {
+        if(user === null){
+            return alert("Please register to proceed with cart")
         }
 
-        return array.map((a) => a.item.price * a.cartAmount).reduce((a, b) => a + b).toFixed(2)
+        if(itemList.length === 0){
+            return alert("Please add atleast 1 item to the cart")
+        }
+
+        console.log(123)
     }
 
     return (
@@ -85,7 +97,7 @@ export const Cart = () => {
             <div className='cart__container'>
                 <div className='cart__header--container'>
                     <h1 className='cart__header--title'>Item cart</h1>
-                    <button className='cart__header--button'>Proceed →</button>
+                    <button className='cart__header--button' onClick={onCartSubmit}>Proceed →</button>
                 </div>
                 <div className='cart__list--container'>
                     {itemsInCart.length === 0 ?
@@ -118,7 +130,7 @@ export const Cart = () => {
                         ))}
                     {itemsInCart.length !== 0 && <div className='cart_item--cartTotalContainer'>
                         <div className='cart_item--cartTotal textAlignEnd'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemList)}$</span></div>
-                        <button className='cart__header--button'>Proceed →</button>
+                        <button className='cart__header--button' onClick={onCartSubmit}>Proceed →</button>
                     </div>}
                 </div>
             </div>

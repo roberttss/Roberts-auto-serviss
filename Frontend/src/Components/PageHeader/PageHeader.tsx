@@ -5,9 +5,10 @@ import RegisterForm from "./Components/RegisterForm";
 import Cookies from 'universal-cookie';
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContext/GlobalContext";
+import { Modal } from "../Modal/Modal";
 
 const PageHeader = () => {
-    const { itemsInCart, user, setUser} = useContext(GlobalContext)
+    const { itemsInCart, user, setUser } = useContext(GlobalContext)
 
     const [openRegisterModal, setOpenRegisterModal] = useState<boolean>(false);
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
@@ -47,18 +48,14 @@ const PageHeader = () => {
             </div>
 
             {openRegisterModal && (
-                <div className="pageHeader__modal">
-                    <div className="pageHeader__modal--content">
-                        <RegisterForm onClose={() => setOpenRegisterModal(false)} />
-                    </div>
-                </div>
+                <Modal>
+                    <RegisterForm onClose={() => setOpenRegisterModal(false)} />
+                </Modal>
             )}
             {user === null && openLoginModal && (
-                <div className="pageHeader__modal">
-                    <div className="pageHeader__modal--content">
-                        <LoginForm setUserState={setUser} onClose={() => setOpenLoginModal(false)}></LoginForm>
-                    </div>
-                </div>
+                <Modal>
+                    <LoginForm setUserState={setUser} onClose={() => setOpenLoginModal(false)} />
+                </Modal>
             )}
         </div>
     );
