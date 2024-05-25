@@ -46,7 +46,7 @@ const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
                             message: "Entered value does not match email format",
                         }
                     })} type="text" placeholder="E-mail" id="e-mail"/>
-                    <p>{errors.email?.message}</p>
+                    <p className="form__error">{errors.email?.message}</p>
                 </div>
 
                 <div className="form__input--container">
@@ -56,8 +56,8 @@ const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
                         minLength: {
                             value: 8,
                             message: "Minimal length for password is 8 characters",
-                        }})} type="text" placeholder="Password" id="password"/>
-                    <p>{errors.password?.message}</p>
+                        }})} type="password" placeholder="Password" id="password"/>
+                    <p className="form__error">{errors.password?.message}</p>
                 </div>
 
                 <div className="form__buttons--container">

@@ -35,13 +35,13 @@ const RegisterForm = ({onClose}: RegisterFormProps) => {
                             message: "Entered value does not match email format",
                         }
                     })} type="text" placeholder="E-mail" id="email"/>
-                    <p>{errors.email?.message}</p>
+                    <p className="form__error">{errors.email?.message}</p>
                 </div>
                 
                 <div className="form__input--container">
                     <label className="form__label" htmlFor="name">Name</label>
                     <input className="form__inputField" {...register("name", { required: "Name is required" })} type="text" placeholder="Name" id="name"/>
-                    <p>{errors.name?.message}</p>
+                    <p className="form__error">{errors.name?.message}</p>
                 </div>
 
                 <div className="form__input--container">
@@ -52,8 +52,8 @@ const RegisterForm = ({onClose}: RegisterFormProps) => {
                             value: 8,
                             message: "Minimal length for password is 8 characters",
                         }
-                    })} type="text" placeholder="Password" />
-                    <p>{errors.password?.message}</p>
+                    })} type="password" placeholder="Password" />
+                    <p className="form__error">{errors.password?.message}</p>
                 </div>
 
                 <div className="form__buttons--container">
