@@ -2,8 +2,10 @@ import { useContext, useState } from 'react'
 import './Cart.scss'
 import { GlobalContext } from '../../GlobalContext/GlobalContext'
 import { Product } from '../../Components/ProductList/ProductList'
+import { ProceedCartModal } from './Components/ProceedCartModal'
+import { Modal } from '../../Components/Modal/Modal'
 
-type CartItem = {
+export type CartItem = {
     item: Product;
     cartAmount: number;
 }
@@ -18,6 +20,8 @@ const getTotalAmount = (array: CartItem[]) => {
 
 export const Cart = () => {
     const { itemsInCart, user } = useContext(GlobalContext)
+
+    const [openProceedModal, setOpenProceedModal] = useState(false)
 
     const countElementsWithId = (arr: Product[], targetId: number) => {
         // Filter the array to get elements that have the specified id
@@ -89,7 +93,7 @@ export const Cart = () => {
             return alert("Please add atleast 1 item to the cart")
         }
 
-        console.log(123)
+        setOpenProceedModal(true)
     }
 
     return (
@@ -132,6 +136,7 @@ export const Cart = () => {
                         <div className='cart_item--cartTotal textAlignEnd'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemList)}$</span></div>
                         <button className='cart__header--button' onClick={onCartSubmit}>Proceed →</button>
                     </div>}
+                    {openProceedModal && <Modal><ProceedCartModal onClose={() => setOpenProceedModal(false)} totalCartValue={Number(getTotalAmount(itemList))} cartItemList={itemList}/></Modal>}
                 </div>
             </div>
         </div>
