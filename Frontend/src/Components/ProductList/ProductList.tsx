@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import './ProductList.scss'
 import { ProductItemModal } from "./Components/ProductItemModal";
+import { Modal } from "../Modal/Modal";
 
 export type Product = {
     id: number,
@@ -66,7 +67,7 @@ const ProductList = () => {
     }, [products, filterValue, sortValue, sortProductList])
 
     return (
-        <div>
+        <>
             <div className="productList__filter--container">
                 <select className="productList__filter" name="filter" value={filterValue} onChange={(e) => setFilterValue(e.target.value)}>
                     <option value="">Select a filter... (All)</option>
@@ -95,8 +96,8 @@ const ProductList = () => {
                 ))}
             </div>
 
-            {openProductItemModal.openModal && <ProductItemModal product={products[openProductItemModal.itemId - 1]} onClose={() => setOpenProductItemModal({ openModal: false, itemId: openProductItemModal.itemId })} />}
-        </div>
+            {openProductItemModal.openModal && <Modal><ProductItemModal product={products[openProductItemModal.itemId - 1]} onClose={() => setOpenProductItemModal({ openModal: false, itemId: openProductItemModal.itemId })} /></Modal>}
+        </>
     )
 }
 
