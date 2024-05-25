@@ -8,7 +8,7 @@ type ProceedCartModalProps = {
     cartItemList: CartItem[];
 }
 
-export const ProceedCartModal = ({onClose, totalCartValue, cartItemList}: ProceedCartModalProps) => {
+export const ProceedCartModal = ({ onClose, totalCartValue, cartItemList }: ProceedCartModalProps) => {
     const { itemsInCart, user } = useContext(GlobalContext)
 
     console.log(itemsInCart)
@@ -17,7 +17,7 @@ export const ProceedCartModal = ({onClose, totalCartValue, cartItemList}: Procee
     return (
         <div>
             <div>
-                {cartItemList.map(({item, cartAmount}) => (
+                {cartItemList.map(({ item, cartAmount }) => (
                     <div>
                         <h1>{item.title}</h1>
                         <span>{item.price.toFixed(2)}$</span>

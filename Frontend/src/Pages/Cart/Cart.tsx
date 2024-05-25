@@ -85,11 +85,11 @@ export const Cart = () => {
     }
 
     const onCartSubmit = () => {
-        if(user === null){
+        if (user === null) {
             return alert("Please register to proceed with cart")
         }
 
-        if(itemList.length === 0){
+        if (itemList.length === 0) {
             return alert("Please add atleast 1 item to the cart")
         }
 
@@ -136,7 +136,7 @@ export const Cart = () => {
                         <div className='cart_item--cartTotal textAlignEnd'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemList)}$</span></div>
                         <button className='cart__header--button' onClick={onCartSubmit}>Proceed →</button>
                     </div>}
-                    {openProceedModal && <Modal><ProceedCartModal onClose={() => setOpenProceedModal(false)} totalCartValue={Number(getTotalAmount(itemList))} cartItemList={itemList}/></Modal>}
+                    {openProceedModal && <Modal><ProceedCartModal onClose={() => setOpenProceedModal(false)} totalCartValue={Number(getTotalAmount(itemList))} cartItemList={itemList} /></Modal>}
                 </div>
             </div>
         </div>
