@@ -32,3 +32,18 @@ model Product {
     owner User @relation(fields: [ownerId], references: [id])
     ownerId Int
 }
+
+model Order {
+    id Int @id @default(autoincrement())
+    orderedItems OrderItem[] 
+}   
+
+model OrderItem {
+    id Int @id
+    title String
+    orderedAmount Int
+    price Int
+    orderId Int
+    order Order @relation(fields: [orderId], references: [id]) 
+}
+

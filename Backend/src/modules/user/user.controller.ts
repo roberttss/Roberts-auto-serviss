@@ -4,7 +4,7 @@ import { LoginInput, createUserInput } from "./user.schema";
 import { verifyPassword } from "../../utils/hash";
 import { server } from "../../app";
 
-export const registerUserHandler = async (request: FastifyRequest<{Body: createUserInput}>, reply: FastifyReply) => {
+export const registerUserHandler = async (request: FastifyRequest<{ Body: createUserInput}>, reply: FastifyReply) => {
     const body = request.body
 
     try{

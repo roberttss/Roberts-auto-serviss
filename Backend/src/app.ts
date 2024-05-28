@@ -5,6 +5,9 @@ import cors from '@fastify/cors'
 import { userSchemas } from "./modules/user/user.schema";
 import productRoutes from "./modules/product/product.route";
 import fCookie from '@fastify/cookie'
+import orderRoutes from "./modules/order/order.route";
+import { orderSchemas } from "./modules/order/order.schema";
+
 
 export const server = Fastify({
     logger: true
@@ -41,13 +44,15 @@ server.decorate("authenticate", async (request: FastifyRequest, reply: FastifyRe
 })
   
 const main = async () => {
-    for(const schema of userSchemas){
+    for(const schema of [...userSchemas, ...orderSchemas]){
         server.addSchema(schema);
     }
 
     server.register(userRoutes, {prefix: "api/users"})
 
     server.register(productRoutes, {prefix: "api/products"})
+
+    server.register(orderRoutes, { prefix: "api/orders" })
 
     try{
         await server.listen(3000, '0.0.0.0')
