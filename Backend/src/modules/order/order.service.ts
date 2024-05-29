@@ -16,3 +16,11 @@ export const createOrder = async (input: createOrderInput) => {
 
     return order
 }
+
+export const findOrders = async () => {
+    return prisma.order.findMany({
+        select:{
+           orderedItems: true, 
+        }
+    })
+}

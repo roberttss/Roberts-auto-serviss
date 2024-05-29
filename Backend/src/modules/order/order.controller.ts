@@ -1,9 +1,11 @@
 import { FastifyReply, FastifyRequest } from "fastify"
 import { createOrderInput } from "./order.schema"
-import { createOrder } from "./order.service"
+import { createOrder, findOrders } from "./order.service"
 
-export const getOrdersHandler = () => {
-    
+export const getOrdersHandler = async (req: FastifyRequest, reply: FastifyReply) => {
+    const orders = await findOrders()
+
+    return reply.code(200).send(orders)
 }
 
 export const createOrderHandler = async (request: FastifyRequest<{ Body: createOrderInput }>, reply: FastifyReply) => {

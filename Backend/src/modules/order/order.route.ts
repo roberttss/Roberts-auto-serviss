@@ -1,15 +1,15 @@
 import { FastifyInstance } from "fastify";
-import { createOrderHandler } from "./order.controller";
+import { createOrderHandler, getOrdersHandler } from "./order.controller";
 import { $ref } from "./order.schema";
 
 const orderRoutes = async (server: FastifyInstance) => {
-    // server.get('/', {
-    //     preHandler: [server.authenticate]
-    // }, getOrdersHandler);
+    server.get('/all', {
+        preHandler: [server.authenticate]
+    }, getOrdersHandler);
 
     server.post('/create', {
         schema: {
-            // body: $ref("createOrderSchema"),
+            body: $ref("createOrderSchema"),
             // response: {
             //     200: $ref("createOrderSchema"),
             // }
