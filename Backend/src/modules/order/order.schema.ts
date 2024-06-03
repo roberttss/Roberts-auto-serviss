@@ -10,15 +10,15 @@ const orderItemSchema = z.object({
 
 const createOrderSchema = z.array(orderItemSchema)
 
-const createOrderResponseSchema = z.object({
-    orderId: z.number(),
-    // ...createOrderSchema,
+const createOrderResponseSchemaTest = z.object({
+    userId: z.number(),
+    orderedItems: z.array(orderItemSchema)
 })
 
 export type createOrderInput = z.infer<typeof createOrderSchema>
+export type createOrderInputTest = z.infer<typeof createOrderResponseSchemaTest>
 
 export const {schemas: orderSchemas, $ref } = buildJsonSchemas({
     createOrderSchema,
-    // createOrderResponseSchema
-    
+    createOrderResponseSchemaTest
 }, { $id: "orderSchema"})

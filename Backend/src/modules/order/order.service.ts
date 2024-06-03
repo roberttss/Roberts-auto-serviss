@@ -1,17 +1,17 @@
 import prisma from "../../utils/prisma";
-import { createOrderInput } from "./order.schema";
+import { createOrderInput, createOrderInputTest } from "./order.schema";
 
 
-export const createOrder = async (input: createOrderInput) => {
+export const createOrder = async (input: createOrderInputTest) => {
+    // const { ...rest } = input
+
     const order = await prisma.order.create({ 
         data: {
+            userId: input.userId,
             orderedItems: {
-                create: input
+                create: input.orderedItems
             }
         },
-        include: {
-            orderedItems: true
-        }
      })
 
     return order
@@ -20,7 +20,10 @@ export const createOrder = async (input: createOrderInput) => {
 export const findOrders = async () => {
     return prisma.order.findMany({
         select:{
-           orderedItems: true, 
+            userId: true,
+            orderId: true,
+            orderedItems: true,
+            
         }
     })
 }

@@ -14,6 +14,10 @@ export const ProceedCartModal = ({ onClose, totalCartValue, cartItemList }: Proc
     console.log(itemsInCart)
     console.log(user)
 
+    // let changedArray = itemsInCart.map(({id, title, price, inStock}) => {id: id, price: price, title: title, orderedAmount: inStock})
+
+
+
     const onSubmit = () => {
         const sendData = [{
             id:453,
@@ -21,11 +25,16 @@ export const ProceedCartModal = ({ onClose, totalCartValue, cartItemList }: Proc
             title: "Engine Oil Filter",
             orderedAmount: 2
         }]
+        
+        const dataTest = {
+            userId: user?.id,
+            orderedItems: sendData
+        }
 
         fetch("http://localhost:3000/api/orders/create", {
             method: 'POST',
             headers: { "Content-Type": 'application/json' },
-            body: JSON.stringify(sendData)
+            body: JSON.stringify(dataTest)
         })
 
         console.log(124)
