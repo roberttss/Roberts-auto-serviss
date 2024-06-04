@@ -1,0 +1,45 @@
+.proceedModal__container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.proceedModal__container--items {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.proceedModal__info--container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.proceedModal__picture {
+  width: 50px;
+}
+
+.proceedModal__name--container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.proceedModal__price--container {
+  display: flex;
+  gap: 10px;
+}
+
+.proceedModal__container--info {
+  display: flex;
+  gap: 10px;
+}
+
+.proceedModal__total{
+    display: flex;
+    align-items: center;
+}

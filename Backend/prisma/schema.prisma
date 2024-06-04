@@ -40,11 +40,11 @@ model Order {
 }   
 
 model OrderItem {
-    id Int @id
+    id Int
     title String
     orderedAmount Int
     price Int
-    orderId Int
+    orderId Int @id
     order Order @relation(fields: [orderId], references: [orderId]) 
 }
 

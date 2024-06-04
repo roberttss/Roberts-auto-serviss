@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../../GlobalContext/GlobalContext";
 import { CartItem } from "../Cart";
+import './ProceedCartModal.scss'
 
 type ProceedCartModalProps = {
     onClose: () => void;
@@ -8,52 +9,72 @@ type ProceedCartModalProps = {
     cartItemList: CartItem[];
 }
 
+type itemDataType = {
+    id: number;
+    price: number;
+    title: string;
+    orderedAmount: number;
+}
+
+type orderDataType = {
+    userId: number;
+    orderedItems: itemDataType[]
+}
+
 export const ProceedCartModal = ({ onClose, totalCartValue, cartItemList }: ProceedCartModalProps) => {
-    const { itemsInCart, user } = useContext(GlobalContext)
+    const { user, setItemsInCart } = useContext(GlobalContext)
 
-    console.log(itemsInCart)
-    console.log(user)
+    if (user === null) {
+        return null
+    }
 
-    // let changedArray = itemsInCart.map(({id, title, price, inStock}) => {id: id, price: price, title: title, orderedAmount: inStock})
+    const onSubmit = async () => {
+        const itemData: itemDataType[] = cartItemList.map(({ item, cartAmount }) => { return { id: item.id, price: item.price, title: item.title, orderedAmount: cartAmount } })
 
-
-
-    const onSubmit = () => {
-        const sendData = [{
-            id:453,
-            price:12.99,
-            title: "Engine Oil Filter",
-            orderedAmount: 2
-        }]
-        
-        const dataTest = {
-            userId: user?.id,
-            orderedItems: sendData
+        const dataTest: orderDataType = {
+            userId: user.id,
+            orderedItems: itemData
         }
 
-        fetch("http://localhost:3000/api/orders/create", {
+        const response = await fetch("http://localhost:3000/api/orders/create", {
             method: 'POST',
             headers: { "Content-Type": 'application/json' },
             body: JSON.stringify(dataTest)
         })
+        const responseJSON = await response.json();
 
-        console.log(124)
+        if(responseJSON.statusCode === 500){
+            return alert("Please try again")
+        }
 
+        onClose()
+        setItemsInCart([])
     }
 
     return (
-        <div>
+        <div className="proceedModal__container">
             <div>
                 {cartItemList.map(({ item, cartAmount }) => (
-                    <div key={item.id}>
-                        <h1>{item.title}</h1>
-                        <span>{item.price.toFixed(2)}$</span>
-                        <span>Amount: {cartAmount}</span>
+                    <div className="proceedModal__container--items" key={item.id}>
+                        <div className="proceedModal__container--info">
+                            <img src={item.picture} alt={`${item.title} photo`} className="proceedModal__picture" />
+                            <div className="proceedModal__name--container">
+                                <span>{item.title}</span>
+                                <div className="proceedModal__price--container">
+                                    <span>Price: <b>{item.price.toFixed(2)}$</b></span>
+                                    <span>Amount: {cartAmount}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className="proceedModal__total">
+                            Total: <b className="textBold">{(item.price * cartAmount).toFixed(2)}$</b>
+                        </div>
                     </div>
                 ))}
             </div>
-            <div>
-                Total: {totalCartValue}$
+            <div className="textAlignEnd">
+                Total: <b className="textBold">{totalCartValue}$</b>
             </div>
             <div className="productItem__modal--buttonContainer">
                 <button

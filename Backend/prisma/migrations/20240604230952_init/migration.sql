@@ -38,7 +38,7 @@ CREATE TABLE "OrderItem" (
     "price" INTEGER NOT NULL,
     "orderId" INTEGER NOT NULL,
 
-    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("orderId")
 );
 
 -- CreateIndex

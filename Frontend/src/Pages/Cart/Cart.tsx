@@ -116,7 +116,6 @@ export const Cart = () => {
                                     </div>
                                 </div>
 
-
                                 <div className='cart__item--optionsContainer'>
                                     <div className='cart__item--counterContainer'>
                                         <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("minus", item.id)}>-</button>
