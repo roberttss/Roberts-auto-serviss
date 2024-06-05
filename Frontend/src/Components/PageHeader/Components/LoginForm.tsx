@@ -22,14 +22,22 @@ const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
         setUserState(decoded)
     }
 
-    const onSubmit: SubmitHandler<FormData> = (data) => {
-        fetch("http://localhost:3000/api/users/login", {
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
+        const response = await fetch("http://localhost:3000/api/users/login", {
             method: 'POST',
             credentials: "include",
             headers: { "Content-Type": 'application/json' },
             body: JSON.stringify(data)
-        }).then(res => res.json())
-            .then(res => login(res.accessToken));
+        })
+        const responseJSON = await response.json();
+
+        if (responseJSON.message === 'Invalid email or password') {
+            return alert("Login failed, invalid e-mail or password")
+        }
+
+        login(responseJSON.accessToken)
+
+        return onClose(true)
     }
 
     return (

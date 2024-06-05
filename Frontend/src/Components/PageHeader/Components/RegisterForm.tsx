@@ -14,12 +14,22 @@ type RegisterFormProps = {
 const RegisterForm = ({onClose}: RegisterFormProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
-    const onSubmit: SubmitHandler<FormData> = (data) => {
-        fetch("http://localhost:3000/api/users/create", {
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
+        const response = await fetch("http://localhost:3000/api/users/create", {
             method: 'POST',
             headers: { "Content-Type": 'application/json' },
             body: JSON.stringify(data)
         })
+        const responseJSON = await response.json();
+
+        if (responseJSON.statusCode === 500) {
+            return alert("Registration failed, please change the e-mail or try again later")
+        }
+
+        
+            onClose(true)
+
+            return alert("Registration completed")
     }
 
     return (
