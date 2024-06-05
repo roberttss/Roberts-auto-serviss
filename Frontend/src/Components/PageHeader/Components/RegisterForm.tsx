@@ -11,7 +11,7 @@ type RegisterFormProps = {
     onClose: (state: boolean) => void
 }
 
-const RegisterForm = ({onClose}: RegisterFormProps) => {
+const RegisterForm = ({ onClose }: RegisterFormProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
@@ -26,10 +26,9 @@ const RegisterForm = ({onClose}: RegisterFormProps) => {
             return alert("Registration failed, please change the e-mail or try again later")
         }
 
-        
-            onClose(true)
+        onClose(true)
 
-            return alert("Registration completed")
+        return alert("Registration completed")
     }
 
     return (
@@ -44,13 +43,13 @@ const RegisterForm = ({onClose}: RegisterFormProps) => {
                             value: /\S+@\S+\.\S+/,
                             message: "Entered value does not match email format",
                         }
-                    })} type="text" placeholder="E-mail" id="email"/>
+                    })} type="text" placeholder="E-mail" id="email" />
                     <p className="form__error">{errors.email?.message}</p>
                 </div>
-                
+
                 <div className="form__input--container">
                     <label className="form__label" htmlFor="name">Name</label>
-                    <input className="form__inputField" {...register("name", { required: "Name is required" })} type="text" placeholder="Name" id="name"/>
+                    <input className="form__inputField" {...register("name", { required: "Name is required" })} type="text" placeholder="Name" id="name" />
                     <p className="form__error">{errors.name?.message}</p>
                 </div>
 

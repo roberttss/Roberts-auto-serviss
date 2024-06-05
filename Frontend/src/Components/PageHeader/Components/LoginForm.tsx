@@ -13,10 +13,10 @@ type LoginFormProps = {
     onClose: (state: boolean) => void
 }
 
-const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
-    const { register, handleSubmit, formState: { errors }} = useForm<FormData>()
+const LoginForm = ({ setUserState, onClose }: LoginFormProps) => {
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
-    const login = (jwt_token:string) => {
+    const login = (jwt_token: string) => {
         const decoded: UserType = jwtDecode(jwt_token);
 
         setUserState(decoded)
@@ -53,7 +53,7 @@ const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
                             value: /\S+@\S+\.\S+/,
                             message: "Entered value does not match email format",
                         }
-                    })} type="text" placeholder="E-mail" id="e-mail"/>
+                    })} type="text" placeholder="E-mail" id="e-mail" />
                     <p className="form__error">{errors.email?.message}</p>
                 </div>
 
@@ -64,7 +64,8 @@ const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
                         minLength: {
                             value: 8,
                             message: "Minimal length for password is 8 characters",
-                        }})} type="password" placeholder="Password" id="password"/>
+                        }
+                    })} type="password" placeholder="Password" id="password" />
                     <p className="form__error">{errors.password?.message}</p>
                 </div>
 
@@ -77,9 +78,9 @@ const LoginForm = ({setUserState, onClose}: LoginFormProps) => {
                     </button>
                     <button className="pageHeader__button--standart">Submit</button>
                 </div>
-            </form> 
+            </form>
         </div>
-        
+
     );
 };
 

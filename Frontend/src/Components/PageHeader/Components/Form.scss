@@ -10,29 +10,29 @@
 }
 
 .form__main--container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
 }
 
-.form__input--container{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 100%;
+.form__input--container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
 }
 
-.form__label{
-    font-weight: bold;
-    font-size: 18px;
+.form__label {
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.form__inputField{
-    padding: 5px;
-    font-size: 18px;
-    border-radius: 6px;
-    border: 1px solid rgb(70, 70, 70);
+.form__inputField {
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid rgb(70, 70, 70);
 }
 
 .form__buttons--container {

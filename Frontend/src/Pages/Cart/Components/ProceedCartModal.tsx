@@ -43,7 +43,7 @@ export const ProceedCartModal = ({ onClose, totalCartValue, cartItemList }: Proc
         })
         const responseJSON = await response.json();
 
-        if(responseJSON.statusCode === 500){
+        if (responseJSON.statusCode === 500) {
             return alert("Please try again")
         }
 
