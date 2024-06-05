@@ -10,9 +10,6 @@ const orderRoutes = async (server: FastifyInstance) => {
     server.post('/create', {
         schema: {
             body: $ref("createOrderResponseSchemaTest"),
-            // response: {
-            //     200: $ref("createOrderSchema"),
-            // }
         }
     }, createOrderHandler)
 }

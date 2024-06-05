@@ -32,13 +32,14 @@ CREATE TABLE "Order" (
 
 -- CreateTable
 CREATE TABLE "OrderItem" (
-    "id" INTEGER NOT NULL,
+    "id" SERIAL NOT NULL,
+    "productId" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
     "orderedAmount" INTEGER NOT NULL,
     "price" INTEGER NOT NULL,
     "orderId" INTEGER NOT NULL,
 
-    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("orderId")
+    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex

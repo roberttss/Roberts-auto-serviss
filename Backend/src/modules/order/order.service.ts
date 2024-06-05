@@ -3,8 +3,6 @@ import { createOrderInput, createOrderInputTest } from "./order.schema";
 
 
 export const createOrder = async (input: createOrderInputTest) => {
-    // const { ...rest } = input
-
     const order = await prisma.order.create({ 
         data: {
             userId: input.userId,
@@ -23,7 +21,6 @@ export const findOrders = async () => {
             userId: true,
             orderId: true,
             orderedItems: true,
-            
         }
     })
 }

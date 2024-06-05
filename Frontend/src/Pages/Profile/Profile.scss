@@ -1,0 +1,34 @@
+.profile__info--container {
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+}
+
+.profile__picture {
+  width: 150px;
+}
+
+.profile__info--infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.profile__order--container{
+    border: 1px solid black;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile__container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile__order--header{
+    font-size: 20px;
+}
