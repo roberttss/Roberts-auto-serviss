@@ -2,7 +2,7 @@ import { buildJsonSchemas } from "fastify-zod";
 import { z } from "zod";
 
 const orderItemSchema = z.object({
-    id: z.number(),
+    productId: z.number(),
     title: z.string(),
     orderedAmount: z.number(),
     price: z.number(),

@@ -10,7 +10,7 @@ type ProceedCartModalProps = {
 }
 
 type itemDataType = {
-    id: number;
+    productId: number;
     price: number;
     title: string;
     orderedAmount: number;
@@ -29,7 +29,7 @@ export const ProceedCartModal = ({ onClose, totalCartValue, cartItemList }: Proc
     }
 
     const onSubmit = async () => {
-        const itemData: itemDataType[] = cartItemList.map(({ item, cartAmount }) => { return { id: item.id, price: item.price, title: item.title, orderedAmount: cartAmount } })
+        const itemData: itemDataType[] = cartItemList.map(({ item, cartAmount }) => { return { productId: item.id, price: item.price, title: item.title, orderedAmount: cartAmount } })
 
         const dataTest: orderDataType = {
             userId: user.id,
