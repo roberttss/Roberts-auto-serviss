@@ -13,7 +13,7 @@ Izmantotais programmēšanas stack ir:
 Lai palaistu programmu lokāli:
 
 1. Instalēt docker programmu
-2. <b>Docker</b> mapītē palaist ```docker compose -up```
+2. <b>Docker</b> mapītē palaist ```docker compose -up -d```
 3. <b>Frontend</b> un <b>Backend</b> mapītēs palaist ```npm i```
 4. <b>Frontend</b> mapītē tad palaist ```npm run dev```
 5. <b>Backend</b> mapītē tad palasit ```npm run dev```
