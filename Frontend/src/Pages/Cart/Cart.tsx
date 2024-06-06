@@ -1,87 +1,47 @@
 import { useContext, useState } from 'react'
 import './Cart.scss'
-import { GlobalContext } from '../../GlobalContext/GlobalContext'
-import { Product } from '../../Components/ProductList/ProductList'
+import { GlobalContext, ProductInCart } from '../../GlobalContext/GlobalContext'
 import { ProceedCartModal } from './Components/ProceedCartModal'
 import { Modal } from '../../Components/Modal/Modal'
+import { Product } from '../../Components/ProductList/ProductList'
 
-export type CartItem = {
-    item: Product;
-    cartAmount: number;
-}
-
-const getTotalAmount = (array: CartItem[]) => {
+const getTotalAmount = (array: ProductInCart[]) => {
     if (array.length === 0) {
         return 0.00
     }
 
-    return array.map((a) => a.item.price * a.cartAmount).reduce((a, b) => a + b).toFixed(2)
+    return array.map((a) => a.product.price * a.amountInCart).reduce((a, b) => a + b).toFixed(2)
 }
 
 export const Cart = () => {
-    const { itemsInCart, user } = useContext(GlobalContext)
+    const { itemsInCart, setItemsInCart, user } = useContext(GlobalContext)
 
     const [openProceedModal, setOpenProceedModal] = useState(false)
 
-    const countElementsWithId = (arr: Product[], targetId: number) => {
-        // Filter the array to get elements that have the specified id
-        const filteredArray = arr.filter(obj => obj.id === targetId);
+    const addOrRemoveItem = (action: 'plus' | 'minus', product: Product) => {
+        const updatedCart: ProductInCart[] = itemsInCart.map((item) => {
+            const actionSign = (action === 'plus' ? item.amountInCart + 1 : item.amountInCart - 1)
 
-        // Return the count of filtered elements
-        return filteredArray.length;
-    };
-
-    const filterForUniqueItemArray = (itemsArray: Product[]) => {
-        const uniqueItemArray: CartItem[] = []
-
-        itemsArray.forEach((item1) => {
-            if (!uniqueItemArray.some((item2) => item2.item.id === item1.id)) {
-                uniqueItemArray.push({ item: item1, cartAmount: countElementsWithId(itemsInCart, item1.id) })
-            } else {
-                const itemIndex = uniqueItemArray.findIndex(item => item.item.id === item1.id);
-
-                uniqueItemArray[itemIndex].cartAmount + 1
+            if (item.product.id === product.id) {
+                const changedItem = {
+                    amountInCart: actionSign,
+                    product: item.product
+                }
+                return changedItem
             }
-        });
 
-        return uniqueItemArray
+            return item
+        })
+
+        return setItemsInCart(updatedCart)
     }
-
-    const uniqueItemArray = filterForUniqueItemArray(itemsInCart)
-
-    const addOrRemoveItem = (action: string, id: number) => {
-        const item = uniqueItemArray.find((item) => item.item.id === id)
-        const indexo = uniqueItemArray.findIndex((item) => item.item.id === id)
-
-        if (item === undefined) {
-            return null
-        }
-
-        if (action === "plus") {
-            const updatedCartItems = [...itemList];
-
-            updatedCartItems[indexo].cartAmount = updatedCartItems[indexo].cartAmount + 1
-
-            return setItemList(updatedCartItems)
-        }
-
-        if (action === "minus") {
-            const updatedCartItems = [...itemList];
-
-            updatedCartItems[indexo].cartAmount = updatedCartItems[indexo].cartAmount - 1
-
-            return setItemList(updatedCartItems)
-        }
-    }
-
-    const [itemList, setItemList] = useState<CartItem[]>(uniqueItemArray)
 
     const removeItem = (id: number) => {
-        const coppiedCartItems = [...itemList];
+        const coppiedCartItems = [...itemsInCart];
 
-        const filteredArray = coppiedCartItems.filter((item) => item.item.id !== id)
+        const filteredArray = coppiedCartItems.filter((item) => item.product.id !== id)
 
-        return setItemList(filteredArray)
+        return setItemsInCart(filteredArray)
     }
 
     const onCartSubmit = () => {
@@ -89,7 +49,7 @@ export const Cart = () => {
             return alert("Please register to proceed with cart")
         }
 
-        if (itemList.length === 0) {
+        if (itemsInCart.length === 0) {
             return alert("Please add atleast 1 item to the cart")
         }
 
@@ -106,36 +66,36 @@ export const Cart = () => {
                 <div className='cart__list--container'>
                     {itemsInCart.length === 0 ?
                         <div className='cart__list--empty textAlignCenter'>Cart is empty</div> :
-                        itemList.map(({ item, cartAmount }) => (
-                            <div className='cart__item--container' key={item.id}>
+                        itemsInCart.map(({ product, amountInCart }) => (
+                            <div className='cart__item--container' key={product.id}>
                                 <div className='cart__item--infoContainer'>
-                                    <img src={item.picture} alt={`${item.title} photo`} className='cart__item--picture' />
+                                    <img src={product.picture} alt={`${product.title} photo`} className='cart__item--picture' />
                                     <div className='cart__item--nameContainer'>
-                                        <span>{item.title}</span>
-                                        <span>Price: <b className='cart__item--bold'>{item.price.toFixed(2)}$</b></span>
+                                        <span>{product.title}</span>
+                                        <span>Price: <b className='cart__item--bold'>{product.price.toFixed(2)}$</b></span>
                                     </div>
                                 </div>
 
                                 <div className='cart__item--optionsContainer'>
                                     <div className='cart__item--counterContainer'>
-                                        <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("minus", item.id)}>-</button>
-                                        <span className='cart__item--count'>{cartAmount}</span>
-                                        <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("plus", item.id)}>+</button>
+                                        <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("minus", product)}>-</button>
+                                        <span className='cart__item--count'>{amountInCart}</span>
+                                        <button className='cart__item--counterButtons' onClick={() => addOrRemoveItem("plus", product)}>+</button>
                                     </div>
-                                    <span className='cart__item--total '>Total: <b className='cart__item--bold'>{(cartAmount * item.price).toFixed(2)}$</b></span>
+                                    <span className='cart__item--total '>Total: <b className='cart__item--bold'>{(amountInCart * product.price).toFixed(2)}$</b></span>
                                     <button
                                         className='cart__item--remove'
-                                        onClick={() => removeItem(item.id)}>
+                                        onClick={() => removeItem(product.id)}>
                                         Remove
                                     </button>
                                 </div>
                             </div>
                         ))}
                     {itemsInCart.length !== 0 && <div className='cart_item--cartTotalContainer'>
-                        <div className='cart_item--cartTotal textAlignEnd'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemList)}$</span></div>
+                        <div className='cart_item--cartTotal textAlignEnd'>Cart total: <span className='cart__item--bold'>{getTotalAmount(itemsInCart)}$</span></div>
                         <button className='cart__header--button' onClick={onCartSubmit}>Proceed →</button>
                     </div>}
-                    {openProceedModal && <Modal><ProceedCartModal onClose={() => setOpenProceedModal(false)} totalCartValue={Number(getTotalAmount(itemList))} cartItemList={itemList} /></Modal>}
+                    {openProceedModal && <Modal><ProceedCartModal onClose={() => setOpenProceedModal(false)} totalCartValue={Number(getTotalAmount(itemsInCart))} cartItemList={itemsInCart} /></Modal>}
                 </div>
             </div>
         </div>

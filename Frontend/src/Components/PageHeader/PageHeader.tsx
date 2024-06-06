@@ -28,6 +28,12 @@ const PageHeader = () => {
         cookies.remove("access_token")
     }
 
+    const itemCountInCart = (): number => {
+        const amount = itemsInCart.map(({ amountInCart }) => amountInCart).reduce((a, b) => a + b, 0)
+
+        return amount
+    }
+
     return (
         <div className="pageHeader__container">
             <Link to="/" className="pageHeader__title">Robis Serviss</Link>
@@ -44,7 +50,7 @@ const PageHeader = () => {
                 ) : (
                     <button className="pageHeader__button--standart" onClick={() => setOpenLoginModal(true)}>Login</button>
                 )}
-                <Link to="/cart" className="pageHeader__button--standart relative">Cart {itemsInCart.length !== 0 && <span className="pageHeader__cart--circle">{itemsInCart.length}</span>}</Link>
+                <Link to="/cart" className="pageHeader__button--standart relative">Cart {itemsInCart.length !== 0 && <span className="pageHeader__cart--circle">{itemCountInCart()}</span>}</Link>
             </div>
 
             {openRegisterModal && (

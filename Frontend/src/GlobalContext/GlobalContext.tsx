@@ -7,9 +7,14 @@ export type UserType = {
     id: number,
 }
 
+export type ProductInCart = {
+    amountInCart: number,
+    product: Product
+}
+
 type GlobalContextType = {
-    itemsInCart: Product[];
-    setItemsInCart: Dispatch<SetStateAction<Product[]>>;
+    itemsInCart: ProductInCart[];
+    setItemsInCart: Dispatch<SetStateAction<ProductInCart[]>>;
     user: UserType | null;
     setUser: Dispatch<SetStateAction<UserType | null>>;
 }

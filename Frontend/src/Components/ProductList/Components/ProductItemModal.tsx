@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Product } from '../ProductList'
 import './ProductItemModal.scss'
-import { GlobalContext } from '../../../GlobalContext/GlobalContext'
+import { GlobalContext, ProductInCart } from '../../../GlobalContext/GlobalContext'
 
 type ProductItemModalType = {
     product: Product,
@@ -10,6 +10,28 @@ type ProductItemModalType = {
 
 export const ProductItemModal = ({ product, onClose }: ProductItemModalType) => {
     const { itemsInCart, setItemsInCart } = useContext(GlobalContext)
+
+    const addItemToCart = (product: Product) => {
+        const productIsInCart = itemsInCart.some((item) => item.product.id === product.id)
+
+        if (productIsInCart) {
+            const updatedCart: ProductInCart[] = itemsInCart.map((item) => {
+                if (item.product.id === product.id) {
+                    const changedItem = {
+                        amountInCart: item.amountInCart + 1,
+                        product: item.product
+                    }
+                    return changedItem
+                }
+
+                return item
+            })
+
+            return setItemsInCart(updatedCart)
+        }
+
+        setItemsInCart([...itemsInCart, { amountInCart: 1, product: product }])
+    }
 
     return (
         <>
@@ -32,7 +54,7 @@ export const ProductItemModal = ({ product, onClose }: ProductItemModalType) => 
                 >
                     Back
                 </button>
-                <button className="productItem__modal--add" onClick={() => setItemsInCart([...itemsInCart, product])}>Add to cart</button>
+                <button className="productItem__modal--add" onClick={() => addItemToCart(product)}>Add to cart</button>
             </div>
         </>
     )
