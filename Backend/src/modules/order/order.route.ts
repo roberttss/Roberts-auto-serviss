@@ -3,7 +3,7 @@ import { createOrderHandler, getOrdersHandler } from "./order.controller";
 import { $ref } from "./order.schema";
 
 const orderRoutes = async (server: FastifyInstance) => {
-    server.get('/all', {
+    server.get<{ Params: {userId: string}}>('/all/:userId', {
         preHandler: [server.authenticate]
     }, getOrdersHandler);
 

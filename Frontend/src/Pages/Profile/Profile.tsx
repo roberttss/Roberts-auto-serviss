@@ -7,7 +7,7 @@ export const Profile = () => {
     const { user } = useContext(GlobalContext)
 
     const test = () => {
-        fetch('http://localhost:3000/api/orders/all', {
+        fetch(`http://localhost:3000/api/orders/all/${user?.id}`, {
             method: 'GET',
             credentials: "include",
         }).then((res) => res.json()).then((res) => console.log(1111, res))

@@ -15,8 +15,11 @@ export const createOrder = async (input: createOrderInputTest) => {
     return order
 }
 
-export const findOrders = async () => {
+export const findOrders = async (userId: number) => {
     return prisma.order.findMany({
+        where: {
+            userId: userId,
+        },
         select:{
             userId: true,
             orderId: true,

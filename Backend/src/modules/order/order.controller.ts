@@ -2,8 +2,14 @@ import { FastifyReply, FastifyRequest } from "fastify"
 import { createOrderInput, createOrderInputTest } from "./order.schema"
 import { createOrder, findOrders } from "./order.service"
 
-export const getOrdersHandler = async (req: FastifyRequest, reply: FastifyReply) => {
-    const orders = await findOrders()
+type ParamsType = {
+    userId: string
+}
+
+export const getOrdersHandler = async (req: FastifyRequest<{ Params: ParamsType }>, reply: FastifyReply) => {
+    const { userId } = req.params
+    
+    const orders = await findOrders(parseInt(userId, 10))
 
     return reply.code(200).send(orders)
 }
