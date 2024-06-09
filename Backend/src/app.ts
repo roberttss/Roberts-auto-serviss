@@ -7,6 +7,7 @@ import productRoutes from "./modules/product/product.route";
 import fCookie from '@fastify/cookie'
 import orderRoutes from "./modules/order/order.route";
 import { orderSchemas } from "./modules/order/order.schema";
+import { serviceRoutes } from "./modules/service/service.route";
 
 
 export const server = Fastify({
@@ -53,6 +54,8 @@ const main = async () => {
     server.register(productRoutes, {prefix: "api/products"})
 
     server.register(orderRoutes, { prefix: "api/orders" })
+
+    server.register(serviceRoutes, { prefix: "api/services" })
 
     try{
         await server.listen(3000, '0.0.0.0')

@@ -1,5 +1,5 @@
 import prisma from "../../utils/prisma";
-import { createOrderInput, createOrderInputTest } from "./order.schema";
+import { createOrderInputTest } from "./order.schema";
 
 
 export const createOrder = async (input: createOrderInputTest) => {
