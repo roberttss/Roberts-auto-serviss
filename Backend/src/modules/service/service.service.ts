@@ -10,3 +10,18 @@ export const createService = async (input: createServiceInput) => {
 
     return service
 }
+
+export const findServices = async (userId: number) => {
+    return prisma.service.findMany({
+        where: {
+            userId: userId,
+        },
+        select: {
+            userId: true, 
+            name: true,
+            orderedServiceDate: true,
+            orderedServiceTime: true,
+            createAt: true, 
+        }
+    })
+}
