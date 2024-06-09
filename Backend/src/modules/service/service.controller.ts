@@ -1,7 +1,8 @@
 import { FastifyReply, FastifyRequest } from "fastify"
-import { serviceInput } from "./service.schema"
+import { createServiceInput } from "./service.schema"
+import { createService } from "./service.service"
 
-export const createServiceHandler = async (request: FastifyRequest<{ Body: serviceInput }>, reply: FastifyReply) => {
+export const createServiceHandler = async (request: FastifyRequest<{ Body: createServiceInput }>, reply: FastifyReply) => {
     const body = request.body
 
     try {

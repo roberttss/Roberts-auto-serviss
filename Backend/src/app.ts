@@ -8,6 +8,7 @@ import fCookie from '@fastify/cookie'
 import orderRoutes from "./modules/order/order.route";
 import { orderSchemas } from "./modules/order/order.schema";
 import { serviceRoutes } from "./modules/service/service.route";
+import { serviceSchemas } from "./modules/service/service.schema";
 
 
 export const server = Fastify({
@@ -45,7 +46,7 @@ server.decorate("authenticate", async (request: FastifyRequest, reply: FastifyRe
 })
   
 const main = async () => {
-    for(const schema of [...userSchemas, ...orderSchemas]){
+    for (const schema of [...userSchemas, ...orderSchemas, ...serviceSchemas]){
         server.addSchema(schema);
     }
 

@@ -12,10 +12,10 @@ const serviceSchema = z.object({
 const allServicesSchema = z.array(serviceSchema)
 
 export type allServiceResponse = z.infer<typeof allServicesSchema>
-export type serviceInput = z.infer<typeof serviceSchema>
+export type createServiceInput = z.infer<typeof serviceSchema>
 
 
 export const { schemas: serviceSchemas, $ref } = buildJsonSchemas({
     allServicesSchema,
     serviceSchema
-}, { $id: 'serviceSchema' })
+}, { $id: 'serviceSchemas' })

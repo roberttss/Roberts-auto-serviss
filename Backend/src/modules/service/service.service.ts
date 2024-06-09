@@ -1,7 +1,7 @@
 import prisma from "../../utils/prisma"
-import { serviceInput } from "./service.schema"
+import { createServiceInput } from "./service.schema"
 
-export const createService = async (input: serviceInput) => {
+export const createService = async (input: createServiceInput) => {
     const {...rest} = input
 
     const service = await prisma.service.create({

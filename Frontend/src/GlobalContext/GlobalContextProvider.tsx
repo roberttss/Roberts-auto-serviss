@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { GlobalContext, UserType } from "./GlobalContext";
-import { Product } from "../Components/ProductList/ProductList";
+import { GlobalContext, ProductInCart, UserType } from "./GlobalContext";
 
 export const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [items, setItems] = useState<Product[]>([])
+    const [items, setItems] = useState<ProductInCart[]>([])
     const [user, setUser] = useState<UserType | null>(null);
 
     const data = {
@@ -12,6 +11,8 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
         user: user,
         setUser: setUser, 
     }
+
+    console.log(1111, items)
 
     return (
         <GlobalContext.Provider value={data}>
