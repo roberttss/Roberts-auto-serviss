@@ -10,7 +10,6 @@ import { orderSchemas } from "./modules/order/order.schema";
 import { serviceRoutes } from "./modules/service/service.route";
 import { serviceSchemas } from "./modules/service/service.schema";
 
-
 export const server = Fastify({
     logger: true
   })

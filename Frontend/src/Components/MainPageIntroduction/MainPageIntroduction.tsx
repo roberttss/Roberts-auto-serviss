@@ -3,18 +3,19 @@ import './MainPageIntroduction.scss'
 import picture from './assets/static/ServicePhoto.jpg'
 
 type MainPageIntroductionProps = {
-    productsRef: RefObject<HTMLDivElement>
+    productsRef: RefObject<HTMLDivElement>,
+    serviceRef: RefObject<HTMLDivElement>
 }
 
-export const MainPageIntroduction = ({ productsRef }: MainPageIntroductionProps) => {
-    const scrollToRef = () => {
-        if (productsRef === null) {
+export const MainPageIntroduction = ({ productsRef, serviceRef }: MainPageIntroductionProps) => {
+    const scrollToRef = (ref: RefObject<HTMLDivElement>) => {
+        if (ref === null) {
             return null
         }
 
-        if (productsRef.current) {
+        if (ref.current) {
             window.scrollTo({
-                top: productsRef.current.offsetTop - 70,
+                top: ref.current.offsetTop - 70,
                 behavior: 'smooth'
             });
         }
@@ -31,8 +32,8 @@ export const MainPageIntroduction = ({ productsRef }: MainPageIntroductionProps)
                 <img className='introduction__image' src={picture} alt="Serviss picture" />
             </div>
             <div className='introduction__button--container'>
-                <button className='introduction__button--style' onClick={scrollToRef}>Check our products</button>
-                <button className='introduction__button--style'>Reserve time</button>
+                <button className='introduction__button--style' onClick={() => scrollToRef(productsRef)}>Check our products</button>
+                <button className='introduction__button--style' onClick={() => scrollToRef(serviceRef)}>Reserve time</button>
                 <button className='introduction__button--style'>Something maybe</button>
             </div>
         </div>

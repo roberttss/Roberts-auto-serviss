@@ -3,14 +3,12 @@ import MainPage from "./Pages/MainPage/MainPage"
 import { Cart } from "./Pages/Cart/Cart"
 import PageHeader from "./Components/PageHeader/PageHeader"
 import { Profile } from "./Pages/Profile/Profile"
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useEffect } from "react"
 import { GlobalContext, UserType } from "./GlobalContext/GlobalContext"
 import { jwtDecode } from "jwt-decode"
 
 export const RouterFile = () => {
     const { setUser } = useContext(GlobalContext)
-
-    const productsRef = useRef<HTMLDivElement>(null)
 
     const manualLogin = (jwt_token: string) => {
         const decoded: UserType = jwtDecode(jwt_token);
@@ -43,7 +41,7 @@ export const RouterFile = () => {
             <BrowserRouter basename="/">
                 <PageHeader />
                 <Routes>
-                    <Route path="" element={<MainPage productsRef={productsRef} />} /> 
+                    <Route path="" element={<MainPage />} /> 
                     <Route path="cart" element={<Cart />} />
                     <Route path="profile" element={<Profile />} /> 
                 </Routes>
