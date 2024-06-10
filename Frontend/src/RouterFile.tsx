@@ -41,9 +41,9 @@ export const RouterFile = () => {
             <BrowserRouter basename="/">
                 <PageHeader />
                 <Routes>
-                    <Route path="" element={<MainPage />} /> 
+                    <Route path="" element={<MainPage />} />
                     <Route path="cart" element={<Cart />} />
-                    <Route path="profile" element={<Profile />} /> 
+                    <Route path="profile" element={<Profile />} />
                 </Routes>
             </BrowserRouter>
         </div>

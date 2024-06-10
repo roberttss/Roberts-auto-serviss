@@ -35,8 +35,6 @@ export const ProceedCartModal = ({ onClose, totalCartValue, cartItemList }: Proc
             orderedItems: itemData
         }
 
-        console.log(22222, orderData)
-
         const response = await fetch("http://localhost:3000/api/orders/create", {
             method: 'POST',
             headers: { "Content-Type": 'application/json' },

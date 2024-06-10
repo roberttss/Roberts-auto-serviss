@@ -13,6 +13,13 @@ export const Profile = () => {
         }).then((res) => res.json()).then((res) => console.log(1111, res))
     }
 
+    const test2 = () => {
+        fetch(`http://localhost:3000/api/services/all/${user?.id}`, {
+            method: 'GET',
+            credentials: "include",
+        }).then((res) => res.json()).then((res) => console.log(2222, res))
+    }
+
     return (
         <div className="profile__container marginForHeader">
             <div className="profile__info--container">
@@ -27,6 +34,12 @@ export const Profile = () => {
                 <h1 className="profile__order--header textBold">Your orders</h1>
 
                 <button onClick={() => test()}>Call</button>
+            </div>
+
+            <div className="profile__order--container">
+                <h1 className="profile__order--header textBold">Your ordered services</h1>
+
+                <button onClick={() => test2()}>Call</button>
             </div>
         </div>
     )

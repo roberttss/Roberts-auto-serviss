@@ -5,7 +5,6 @@ import { MainPageIntroduction } from "../../Components/MainPageIntroduction/Main
 import { ServiceOrder } from "../../Components/ServiceOrder/ServiceOrder";
 
 const MainPage = () => {
-   
     const productsRef = useRef<HTMLDivElement>(null)
     const serviceRef = useRef<HTMLDivElement>(null)
 
@@ -15,10 +14,10 @@ const MainPage = () => {
                 <MainPageIntroduction productsRef={productsRef} serviceRef={serviceRef} />
             </div>
             <div className="mainPage__product--container">
-                <div className="mainPage__product--title" ref={productsRef}>Our products</div>
+                <h1 className="mainPage__title" ref={productsRef}>Our products</h1>
                 <ProductList />
-                <h1 ref={serviceRef}>Service order</h1>
-                <ServiceOrder serviceRef={serviceRef}/>
+                <h1 className="mainPage__title" ref={serviceRef}>Service order</h1>
+                <ServiceOrder />
             </div>
         </div>
     )
