@@ -34,7 +34,6 @@ export const MainPageIntroduction = ({ productsRef, serviceRef }: MainPageIntrod
             <div className='introduction__button--container'>
                 <button className='introduction__button--style' onClick={() => scrollToRef(productsRef)}>Check our products</button>
                 <button className='introduction__button--style' onClick={() => scrollToRef(serviceRef)}>Reserve time</button>
-                <button className='introduction__button--style'>Something maybe</button>
             </div>
         </div>
     )

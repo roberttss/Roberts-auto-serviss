@@ -46,7 +46,7 @@ export const ServiceOrder = () => {
     }
 
     return (
-        <div>
+        <div className='serviceOrder__container'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <select {...register("serviceType")}>
                     <option value="tyres">Change tyres</option>

@@ -12,8 +12,6 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
         setUser: setUser, 
     }
 
-    console.log(1111, items)
-
     return (
         <GlobalContext.Provider value={data}>
             {children}
