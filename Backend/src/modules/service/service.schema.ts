@@ -4,7 +4,7 @@ import { z } from "zod";
 const serviceSchema = z.object({
     createAt: z.date(),
     name: z.string(),
-    orderedServiceDate: z.date(),
+    orderedServiceDate: z.string(),
     orderedServiceTime: z.string(),
     userId: z.number()
 })

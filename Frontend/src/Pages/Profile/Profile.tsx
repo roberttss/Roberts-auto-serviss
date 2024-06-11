@@ -19,6 +19,7 @@ type orderListType = {
 }
 
 type serviceListType = {
+    id: number; 
     createAt: Date;
     name: string;
     orderedServiceDate: Date;
@@ -84,8 +85,9 @@ export const Profile = () => {
                 <h1 className="profile__order--header textBold">Your ordered services</h1>
 
                 {serviceList.length === 0 && <div>You have no services ordered</div>}
-                {serviceList.length !== 0 && serviceList.map(({ name }, index) => (
+                {serviceList.length !== 0 && serviceList.map(({ name, id }, index) => (
                     <div className="profile__order--container" key={index}>
+                        <h2>Id: {id}</h2>
                         Ordered service name: {name}
                     </div>
                 ))}

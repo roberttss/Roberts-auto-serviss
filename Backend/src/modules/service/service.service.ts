@@ -2,10 +2,8 @@ import prisma from "../../utils/prisma"
 import { createServiceInput } from "./service.schema"
 
 export const createService = async (input: createServiceInput) => {
-    const {...rest} = input
-
     const service = await prisma.service.create({
-        data: {...rest}
+        data: input
     })
 
     return service
@@ -17,6 +15,7 @@ export const findServices = async (userId: number) => {
             userId: userId,
         },
         select: {
+            id: true,
             userId: true, 
             name: true,
             orderedServiceDate: true,
