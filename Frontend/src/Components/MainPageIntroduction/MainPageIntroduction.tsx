@@ -33,9 +33,9 @@ export const MainPageIntroduction = ({ productsRef, serviceRef, AboutRef }: Main
                 <img className='introduction__image' src={picture} alt="Serviss picture" />
             </div>
             <div className='introduction__button--container'>
+                <button className='introduction__button--style' onClick={() => scrollToRef(AboutRef)}>About us</button>
                 <button className='introduction__button--style' onClick={() => scrollToRef(productsRef)}>Check our products</button>
                 <button className='introduction__button--style' onClick={() => scrollToRef(serviceRef)}>Reserve time</button>
-                <button className='introduction__button--style' onClick={() => scrollToRef(AboutRef)}>About us</button>
             </div>
         </div>
     )

@@ -1,0 +1,16 @@
+.about__container{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 40% 40%;
+    justify-items: center;
+    justify-content: center;
+}
+
+.about__picture{
+    width: 500px;
+}
+
+.about__text{
+    line-height: 28px;
+    font-size: 22px;
+}

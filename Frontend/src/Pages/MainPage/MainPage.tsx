@@ -16,12 +16,13 @@ const MainPage = () => {
                 <MainPageIntroduction productsRef={productsRef} serviceRef={serviceRef} AboutRef={AboutRef} />
             </div>
             <div className="mainPage__product--container">
+                <h1 className="mainPage__title" ref={AboutRef}>About us</h1>
+                <AboutUs />
                 <h1 className="mainPage__title" ref={productsRef}>Our products</h1>
                 <ProductList />
                 <h1 className="mainPage__title" ref={serviceRef}>Service order</h1>
                 <ServiceOrder />
-                <h1 className="mainPage__title" ref={AboutRef}>About us</h1>
-                <AboutUs />
+                <p className="mainPage__rights">Robis serviss / All rights reserved / 2024</p>
             </div>
         </div>
     )
