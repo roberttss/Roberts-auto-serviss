@@ -33,13 +33,15 @@ export const Cart = () => {
             return item
         })
 
-        return setItemsInCart(updatedCart)
+        const filteredArray: ProductInCart[] = updatedCart.filter((item) => item.amountInCart !== 0)
+
+        return setItemsInCart(filteredArray)
     }
 
     const removeItem = (id: number) => {
-        const coppiedCartItems = [...itemsInCart];
+        const copiedCartItems = [...itemsInCart];
 
-        const filteredArray = coppiedCartItems.filter((item) => item.product.id !== id)
+        const filteredArray = copiedCartItems.filter((item) => item.product.id !== id)
 
         return setItemsInCart(filteredArray)
     }

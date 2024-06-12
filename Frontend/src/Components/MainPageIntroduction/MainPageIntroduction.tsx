@@ -5,10 +5,10 @@ import picture from './assets/static/ServicePhoto.jpg'
 type MainPageIntroductionProps = {
     productsRef: RefObject<HTMLDivElement>,
     serviceRef: RefObject<HTMLDivElement>,
-    AboutRef: RefObject<HTMLDivElement>,
+    aboutRef: RefObject<HTMLDivElement>,
 }
 
-export const MainPageIntroduction = ({ productsRef, serviceRef, AboutRef }: MainPageIntroductionProps) => {
+export const MainPageIntroduction = ({ productsRef, serviceRef, aboutRef }: MainPageIntroductionProps) => {
     const scrollToRef = (ref: RefObject<HTMLDivElement>) => {
         if (ref === null) {
             return null
@@ -33,7 +33,7 @@ export const MainPageIntroduction = ({ productsRef, serviceRef, AboutRef }: Main
                 <img className='introduction__image' src={picture} alt="Serviss picture" />
             </div>
             <div className='introduction__button--container'>
-                <button className='introduction__button--style' onClick={() => scrollToRef(AboutRef)}>About us</button>
+                <button className='introduction__button--style' onClick={() => scrollToRef(aboutRef)}>About us</button>
                 <button className='introduction__button--style' onClick={() => scrollToRef(productsRef)}>Check our products</button>
                 <button className='introduction__button--style' onClick={() => scrollToRef(serviceRef)}>Reserve time</button>
             </div>

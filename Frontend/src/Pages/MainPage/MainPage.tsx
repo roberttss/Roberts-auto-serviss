@@ -8,15 +8,15 @@ import { AboutUs } from "../AboutUs/AboutUs";
 const MainPage = () => {
     const productsRef = useRef<HTMLDivElement>(null)
     const serviceRef = useRef<HTMLDivElement>(null)
-    const AboutRef = useRef<HTMLDivElement>(null)
+    const aboutRef = useRef<HTMLDivElement>(null)
 
     return (
         <div>
             <div className="mainPage__introduction--container">
-                <MainPageIntroduction productsRef={productsRef} serviceRef={serviceRef} AboutRef={AboutRef} />
+                <MainPageIntroduction productsRef={productsRef} serviceRef={serviceRef} aboutRef={aboutRef} />
             </div>
             <div className="mainPage__product--container">
-                <h1 className="mainPage__title" ref={AboutRef}>About us</h1>
+                <h1 className="mainPage__title" ref={aboutRef}>About us</h1>
                 <AboutUs />
                 <h1 className="mainPage__title" ref={productsRef}>Our products</h1>
                 <ProductList />

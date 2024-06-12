@@ -19,7 +19,7 @@ type orderListType = {
 }
 
 type serviceListType = {
-    id: number; 
+    id: number;
     createAt: Date;
     name: string;
     orderedServiceDate: Date;
@@ -62,8 +62,11 @@ export const Profile = () => {
             <div className="profile__order--container">
                 <h1 className="profile__order--header textBold">Your orders</h1>
 
-                {orderList.length === 0 && <div>You have no orders</div>}
-                {orderList.length !== 0 && orderList.map(({ orderId, orderedItems }) => (
+                {orderList.length === 0 && user !== null && <p className="profile__needLogIn textBold">You have no orders</p>}
+
+                {user === null && <p className="profile__needLogIn textBold">Please log in to see your orders!</p>}
+
+                {orderList.length !== 0 && user !== null && orderList.map(({ orderId, orderedItems }) => (
                     <div className="profile__order--container" key={orderId}>
                         OrderId: {orderId}
                         <br /><br />
@@ -81,9 +84,11 @@ export const Profile = () => {
 
             <div className="profile__order--container">
                 <h1 className="profile__order--header textBold">Your ordered services</h1>
+                {serviceList.length === 0 && user !== null && <p className="profile__needLogIn textBold">You have no services ordered</p>}
 
-                {serviceList.length === 0 && <div>You have no services ordered</div>}
-                {serviceList.length !== 0 && serviceList.map(({ name, id }, index) => (
+                {user === null && <p className="profile__needLogIn textBold">Please log in to see your ordered services!</p>}
+
+                {serviceList.length !== 0 && user !== null && serviceList.map(({ name, id }, index) => (
                     <div className="profile__order--container" key={index}>
                         <h2>Id: {id}</h2>
                         Ordered service name: {name}
