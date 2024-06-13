@@ -1,5 +1,6 @@
 import crypto from 'crypto'
 
+// Function for hashing password to unknown cipher
 export const hashPassword = (password: string) => {
     const salt = crypto.randomBytes(16).toString("hex")
 
@@ -8,9 +9,9 @@ export const hashPassword = (password: string) => {
     return { hash, salt };
 }
 
+// Function to verify is this password the correct one
 export const verifyPassword = ({candidatePassword, salt, hash}:{candidatePassword: string, salt: string, hash:string} ) => {
     const candidateHash = crypto.pbkdf2Sync(candidatePassword, salt, 1000, 64, "sha512").toString("hex")
-
 
     return candidateHash === hash
 }
