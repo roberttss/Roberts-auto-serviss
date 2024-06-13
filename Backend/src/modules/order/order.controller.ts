@@ -6,6 +6,7 @@ type ParamsType = {
     userId: string
 }
 
+//Function which gets orders
 export const getOrdersHandler = async (req: FastifyRequest<{ Params: ParamsType }>, reply: FastifyReply) => {
     const { userId } = req.params
     
@@ -14,6 +15,7 @@ export const getOrdersHandler = async (req: FastifyRequest<{ Params: ParamsType 
     return reply.code(200).send(orders)
 }
 
+//Function which handles order creation
 export const createOrderHandler = async (request: FastifyRequest<{ Body: createOrderInputTest }>, reply: FastifyReply) => {
     const body = request.body
 

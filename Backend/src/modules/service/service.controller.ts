@@ -6,6 +6,7 @@ type ParamsType = {
     userId: string
 }
 
+// Handle to get all services
 export const getServiceHandler = async (req: FastifyRequest<{ Params: ParamsType }>, reply: FastifyReply) => {
     const { userId } = req.params
 
@@ -14,6 +15,7 @@ export const getServiceHandler = async (req: FastifyRequest<{ Params: ParamsType
     return reply.code(200).send(orders)
 }
 
+// Function to create and handle services
 export const createServiceHandler = async (request: FastifyRequest<{ Body: createServiceInput }>, reply: FastifyReply) => {
     const body = request.body
 
