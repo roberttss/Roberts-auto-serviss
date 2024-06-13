@@ -4,6 +4,7 @@ import { LoginInput, createUserInput } from "./user.schema";
 import { verifyPassword } from "../../utils/hash";
 import { server } from "../../app";
 
+// Function to handle user creation
 export const registerUserHandler = async (request: FastifyRequest<{ Body: createUserInput}>, reply: FastifyReply) => {
     const body = request.body
 
@@ -18,6 +19,7 @@ export const registerUserHandler = async (request: FastifyRequest<{ Body: create
     }
 }
 
+// Function to handle user login action
 export const loginHandler = async (request: FastifyRequest<{Body: LoginInput}>, reply: FastifyReply) => {
     const body = request.body;
     
@@ -58,18 +60,21 @@ export const loginHandler = async (request: FastifyRequest<{Body: LoginInput}>, 
     });
 }
 
+//Function to find all users
 export const getUserHandler = async (req: FastifyRequest, reply: FastifyReply) => {
     const users = await findUsers()
 
     return reply.code(200).send(users)
 }
 
+//Function handle user logout
 export const logoutUser = (req: FastifyRequest, reply: FastifyReply) => {
     reply.clearCookie('access_token')
 
     return reply.send({ message: 'Logout successful' })
 }
 
+//Function to verify can user be logged in, does he have cookie
 export const getVerifyHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     return reply.send({ cookieValue: request.cookies.access_token })
 }

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import {buildJsonSchemas} from 'fastify-zod'
 
+// Variable with main user information
 const userCore = {
     email: z.string({
         required_error: "Email is required",
@@ -9,6 +10,7 @@ const userCore = {
     name: z.string(),
 }
 
+// Variable with schema for user creation
 const createUserSchema = z.object({
     ...userCore,
     password: z.string({
@@ -17,11 +19,13 @@ const createUserSchema = z.object({
         })
 })
 
+// Variable with created user response types
 const createUserResponseSchema = z.object({
     id: z.number(),
     ...userCore, 
 })
 
+// Variable for type, to login
 const loginSchema = z.object({
     email: z.string({
         required_error: "Email is required",
@@ -30,10 +34,12 @@ const loginSchema = z.object({
     password: z.string()
 });
 
+// Variable for type, to successfully login
 const loginResponseSchema = z.object({
     accessToken: z.string(),
 })
 
+// Variables for user types
 export type createUserInput = z.infer<typeof createUserSchema>
 export type LoginInput = z.infer<typeof loginSchema>
 

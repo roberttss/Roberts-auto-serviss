@@ -2,6 +2,7 @@ import { hashPassword } from "../../utils/hash"
 import prisma from "../../utils/prisma"
 import { createUserInput } from "./user.schema"
 
+// Function for user creating and password hashing
 export const createUser = async (input: createUserInput) => {
     const { password, ...rest } = input
 
@@ -12,6 +13,7 @@ export const createUser = async (input: createUserInput) => {
     return user
 }
 
+// Function to find exact user with email
 export const findUserByEmail = async (email: string, ) => {
     return prisma.user.findUnique({
         where: {
@@ -20,6 +22,7 @@ export const findUserByEmail = async (email: string, ) => {
     })
 }
 
+// Function to find all registered users
 export const findUsers = async () => {
     return prisma.user.findMany({
         select:{
