@@ -85,7 +85,10 @@ const ProductList = () => {
             <div className="productList__products--container">
                 {filteredProductList.map(({ id, title, picture, price }) => (
                     <button className="productList__product--container" key={id} onClick={() => setOpenProductItemModal({ openModal: true, itemId: id })}>
-                        <img className="productList__image" src={picture} alt={`${title} photo`} />
+                        <div className="productList__image--container">
+                            <img className="productList__image" src={picture} alt={`${title} photo`} />
+                        </div>
+                        
                         <h2 className="productList__title">
                             {title}
                         </h2>

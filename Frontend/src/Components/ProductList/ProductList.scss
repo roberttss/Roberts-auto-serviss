@@ -24,10 +24,20 @@
   }
 }
 
-.productList__image {
+.productList__image--container {
+  width: 250px;
+  height: 350px;
+  overflow: hidden; 
+  position: relative; 
   border-radius: 6px;
-  width: 100%;
-  height: 351px;
+}
+
+.productList__image {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  max-width: none;
 }
 
 .productList__title {

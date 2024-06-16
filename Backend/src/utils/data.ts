@@ -12,7 +12,7 @@ export const itemList: item[] = [
         "title": "Brake Pad Set",
         "price": 49.99,
         "inStock": 25,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -20,7 +20,7 @@ export const itemList: item[] = [
         "title": "Engine Oil Filter",
         "price": 12.99,
         "inStock": 40,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -28,7 +28,7 @@ export const itemList: item[] = [
         "title": "Power Window Switch",
         "price": 29.99,
         "inStock": 15,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -36,7 +36,7 @@ export const itemList: item[] = [
         "title": "Spark Plug Set",
         "price": 19.99,
         "inStock": 35,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -44,7 +44,7 @@ export const itemList: item[] = [
         "title": "Wheel Lug Nut",
         "price": 2.99,
         "inStock": 50,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -52,7 +52,7 @@ export const itemList: item[] = [
         "title": "Windshield Wiper Blades",
         "price": 24.99,
         "inStock": 20,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -60,7 +60,7 @@ export const itemList: item[] = [
         "title": "Fuel Pump",
         "price": 99.99,
         "inStock": 10,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -68,7 +68,7 @@ export const itemList: item[] = [
         "title": "Radiator",
         "price": 149.99,
         "inStock": 5,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -76,7 +76,7 @@ export const itemList: item[] = [
         "title": "Brake Caliper",
         "price": 79.99,
         "inStock": 12,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -84,7 +84,7 @@ export const itemList: item[] = [
         "title": "Window Regulator",
         "price": 69.99,
         "inStock": 18,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -92,7 +92,7 @@ export const itemList: item[] = [
         "title": "Ignition Coil",
         "price": 39.99,
         "inStock": 30,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -100,7 +100,7 @@ export const itemList: item[] = [
         "title": "Wheel Hub Assembly",
         "price": 129.99,
         "inStock": 8,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -108,7 +108,7 @@ export const itemList: item[] = [
         "title": "Air Filter",
         "price": 14.99,
         "inStock": 45,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -116,7 +116,7 @@ export const itemList: item[] = [
         "title": "Side Mirror",
         "price": 59.99,
         "inStock": 22,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -124,7 +124,7 @@ export const itemList: item[] = [
         "title": "Wheel Bearing",
         "price": 49.99,
         "inStock": 28,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -132,7 +132,7 @@ export const itemList: item[] = [
         "title": "Thermostat",
         "price": 29.99,
         "inStock": 20,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -140,7 +140,7 @@ export const itemList: item[] = [
         "title": "Door Handle",
         "price": 19.99,
         "inStock": 32,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -148,7 +148,7 @@ export const itemList: item[] = [
         "title": "Brake Rotor",
         "price": 69.99,
         "inStock": 15,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -156,7 +156,7 @@ export const itemList: item[] = [
         "title": "Engine Air Intake Hose",
         "price": 34.99,
         "inStock": 10,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -164,7 +164,7 @@ export const itemList: item[] = [
         "title": "Wheel Lock Set",
         "price": 39.99,
         "inStock": 25,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -172,7 +172,7 @@ export const itemList: item[] = [
         "title": "Cabin Air Filter",
         "price": 19.99,
         "inStock": 30,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -180,7 +180,7 @@ export const itemList: item[] = [
         "title": "Sunroof Motor",
         "price": 129.99,
         "inStock": 5,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -188,7 +188,7 @@ export const itemList: item[] = [
         "title": "Starter Motor",
         "price": 99.99,
         "inStock": 8,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -196,7 +196,7 @@ export const itemList: item[] = [
         "title": "Tire Pressure Sensor",
         "price": 29.99,
         "inStock": 20,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -204,7 +204,7 @@ export const itemList: item[] = [
         "title": "Fuel Injector",
         "price": 49.99,
         "inStock": 12,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -212,7 +212,7 @@ export const itemList: item[] = [
         "title": "Power Steering Pump",
         "price": 149.99,
         "inStock": 6,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -220,7 +220,7 @@ export const itemList: item[] = [
         "title": "Wheel Speed Sensor",
         "price": 24.99,
         "inStock": 18,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -228,7 +228,7 @@ export const itemList: item[] = [
         "title": "Windshield Washer Pump",
         "price": 19.99,
         "inStock": 25,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -236,7 +236,7 @@ export const itemList: item[] = [
         "title": "Oxygen Sensor",
         "price": 69.99,
         "inStock": 10,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -244,7 +244,7 @@ export const itemList: item[] = [
         "title": "Hubcap",
         "price": 14.99,
         "inStock": 40,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -252,7 +252,7 @@ export const itemList: item[] = [
         "title": "Door Lock Actuator",
         "price": 49.99,
         "inStock": 15,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -260,7 +260,7 @@ export const itemList: item[] = [
         "title": "Alternator",
         "price": 199.99,
         "inStock": 5,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -268,7 +268,7 @@ export const itemList: item[] = [
         "title": "Steering Rack",
         "price": 299.99,
         "inStock": 3,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -276,7 +276,7 @@ export const itemList: item[] = [
         "title": "Headlight Assembly",
         "price": 129.99,
         "inStock": 7,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -284,7 +284,7 @@ export const itemList: item[] = [
         "title": "Wheel Spacer",
         "price": 39.99,
         "inStock": 20,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -292,7 +292,7 @@ export const itemList: item[] = [
         "title": "Crankshaft Position Sensor",
         "price": 29.99,
         "inStock": 25,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -300,7 +300,7 @@ export const itemList: item[] = [
         "title": "Door Window Switch",
         "price": 19.99,
         "inStock": 30,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -308,7 +308,7 @@ export const itemList: item[] = [
         "title": "Wheel Arch Cover",
         "price": 49.99,
         "inStock": 12,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -316,7 +316,7 @@ export const itemList: item[] = [
         "title": "Timing Belt Kit",
         "price": 89.99,
         "inStock": 10,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -324,7 +324,7 @@ export const itemList: item[] = [
         "title": "Window Tint Film",
         "price": 34.99,
         "inStock": 20,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -332,7 +332,7 @@ export const itemList: item[] = [
         "title": "Clutch Kit",
         "price": 199.99,
         "inStock": 5,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -340,7 +340,7 @@ export const itemList: item[] = [
         "title": "Wheel Valve Stem",
         "price": 4.99,
         "inStock": 50,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -348,7 +348,7 @@ export const itemList: item[] = [
         "title": "Sunroof Glass",
         "price": 179.99,
         "inStock": 2,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -356,7 +356,7 @@ export const itemList: item[] = [
         "title": "Engine Mount",
         "price": 49.99,
         "inStock": 15,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -364,7 +364,7 @@ export const itemList: item[] = [
         "title": "Window Seal",
         "price": 14.99,
         "inStock": 30,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -372,7 +372,7 @@ export const itemList: item[] = [
         "title": "Wheel Hubcap",
         "price": 9.99,
         "inStock": 40,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     },
     {
@@ -380,7 +380,7 @@ export const itemList: item[] = [
         "title": "Cylinder Head Gasket",
         "price": 39.99,
         "inStock": 20,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -388,7 +388,7 @@ export const itemList: item[] = [
         "title": "Door Trim Panel",
         "price": 89.99,
         "inStock": 8,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://s.abcnews.com/images/GMA/generic-windows-abc-jef-190715_hpMain_16x9_992.jpg?w=384",
         "group": "Window"
     },
     {
@@ -396,7 +396,7 @@ export const itemList: item[] = [
         "title": "Transmission Fluid Filter",
         "price": 19.99,
         "inStock": 25,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-73743260-1553736466.jpg?crop=1.00xw:0.916xh;0,0.0534xh&resize=980:*",
         "group": "Engine"
     },
     {
@@ -404,7 +404,7 @@ export const itemList: item[] = [
         "title": "Wheel Alignment Kit",
         "price": 99.99,
         "inStock": 10,
-        "picture": "https://picsum.photos/200/300",
+        "picture": "https://hips.hearstapps.com/hmg-prod/images/pmx0908119a-1591389137.jpg?crop=0.501xw:1.00xh;0.212xw,0&resize=640:*",
         "group": "Wheels"
     }
 ];
