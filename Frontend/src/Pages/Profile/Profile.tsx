@@ -74,7 +74,7 @@ export const Profile = () => {
                         <div>
                             {orderedItems.map((item) => (
                                 <div key={item.productId}>
-                                    title: {item.title}, price: {item.price}, amount: {item.price}$
+                                    title: {item.title}, price: {item.price}$, amount: {item.orderedAmount}
                                 </div>
                             ))}
                         </div>
